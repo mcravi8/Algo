@@ -442,6 +442,7 @@
       <h2>Equity Curve</h2>
       <div class="legend">
         <div class="legend-item"><div class="legend-dot" style="background:var(--coral)"></div> Synapse</div>
+        <div class="legend-item"><div class="legend-dot" style="background:#4a90d9; border-radius:0; width:14px; height:2px; border-top:2px dashed #4a90d9"></div> Buy &amp; Hold</div>
         <div class="legend-item"><div class="legend-dot" style="background:#b0aaa3"></div> SPY (Benchmark)</div>
       </div>
     </div>
@@ -952,7 +953,15 @@ function drawEquityChart(d) {
   const ctx = document.getElementById('equityChart').getContext('2d');
   // Strip Alpaca API glitch values (near-$0 spikes) before rendering.
   const sc = d.starting_capital || 100000;
-  const history = (d.equity_history || []).filter(p => p.portfolio_value >= sc * 0.5);
+  // Trim pre-trading flat period: find first point where portfolio != starting capital
+  // (i.e. actual trading activity), then include the full day it falls on.
+  const allPts = (d.equity_history || []).filter(p => p.portfolio_value >= sc * 0.5);
+  let firstTradeIdx = allPts.findIndex(p => Math.abs(p.portfolio_value - sc) > 0.50);
+  if (firstTradeIdx < 0) firstTradeIdx = 0;
+  // Back up to start of that day
+  const firstTradeDay = allPts[firstTradeIdx] ? allPts[firstTradeIdx].timestamp.slice(0, 10) : '';
+  const startIdx = allPts.findIndex(p => p.timestamp.slice(0, 10) === firstTradeDay);
+  const history = allPts.slice(startIdx >= 0 ? startIdx : 0);
 
   // Destroy previous chart if it exists (for auto-refresh)
   if (equityChartInstance) {
@@ -989,11 +998,34 @@ function drawEquityChart(d) {
     // Within the same day show time only
     return dt.toLocaleString('en-US', {hour:'2-digit', minute:'2-digit'});
   });
+  // Portfolio: use raw values (already starts at $100k).
   const synData = history.map(p => p.portfolio_value);
-  const spyData = history.map(p => p.spy_value);
-  const bhRaw   = history.map(p => p.buy_hold_value != null ? p.buy_hold_value : sc);
-  // Only show buy-hold line when it has real data (not all flat at starting capital)
-  const bhHasData = bhRaw.some(v => Math.abs(v - sc) > 1);
+
+  // Benchmarks: if server data is already on previous-close baseline
+  // (values near $100k at start), use raw. If on old Feb-10 baseline
+  // (values far from $100k), rebase using the LAST bar of the previous
+  // trading day in the dataset as the anchor, matching close-to-close returns.
+  const spyRaw = history.map(p => p.spy_value);
+  const bhRaw  = history.map(p => p.buy_hold_value != null ? p.buy_hold_value : sc);
+
+  // Find previous close: last bar of the day BEFORE the first visible day
+  const allRaw = (d.equity_history || []);
+  const firstVisibleDay = history[0].timestamp.slice(0, 10);
+  const prevDayBars = allRaw.filter(p => p.timestamp.slice(0, 10) < firstVisibleDay);
+  let spyBase, bhBase;
+  if (prevDayBars.length > 0) {
+    // Previous trading day close = anchor for close-to-close returns
+    spyBase = prevDayBars[prevDayBars.length - 1].spy_value;
+    bhBase  = prevDayBars[prevDayBars.length - 1].buy_hold_value || sc;
+  } else {
+    // No prior data — use first visible bar (open-to-close, best we can do)
+    spyBase = spyRaw[0] || sc;
+    bhBase  = bhRaw[0]  || sc;
+  }
+  const spyData = spyRaw.map(v => sc * (v / spyBase));
+  const bhNorm  = bhRaw.map(v => sc * (v / bhBase));
+  // Only show buy-hold line when it has real movement
+  const bhHasData = bhNorm.some(v => Math.abs(v - sc) > 1);
 
   const datasets = [
     {
@@ -1010,7 +1042,7 @@ function drawEquityChart(d) {
   if (bhHasData) {
     datasets.push({
       label: 'Buy & Hold',
-      data: bhRaw,
+      data: bhNorm,
       borderColor: '#4a90d9',
       borderWidth: 1.5,
       pointRadius: 0,
