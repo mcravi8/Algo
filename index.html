@@ -403,8 +403,11 @@
     </div>
     <div class="card big-num">
       <div class="label">Total Return</div>
-      <div class="value" id="totalReturn">0.00%</div>
-      <div class="sub" id="returnSub">since inception</div>
+      <div style="display:flex;align-items:baseline;gap:14px;flex-wrap:wrap">
+        <div class="value" id="totalReturn">0.00%</div>
+        <div id="todayReturn" style="font-size:15px;font-weight:700;color:var(--muted)"></div>
+      </div>
+      <div class="sub" id="returnSub">since inception&nbsp;&nbsp;·&nbsp;&nbsp;<span id="todayReturnLabel" style="color:var(--muted)">today —</span></div>
     </div>
     <div class="card big-num">
       <div class="label">Sharpe Ratio</div>
@@ -700,6 +703,21 @@ function renderOverview(d) {
   document.getElementById('portfolioSub').textContent = (pv >= sc ? '↑ ' : '↓ ') + '$' + Math.abs(pv - sc).toFixed(2) + ' since inception';
   document.getElementById('totalReturn').textContent = retStr;
   document.getElementById('totalReturn').className = 'value ' + (ret >= 0 ? 'positive' : 'negative');
+
+  // Today's return — find equity at start of today (midnight UTC) vs now
+  const todayStr = new Date().toISOString().slice(0, 10); // "YYYY-MM-DD"
+  const equityAll = (d.equity_history || []).filter(p => p.portfolio_value > 0);
+  const todayPts = equityAll.filter(p => p.timestamp && p.timestamp.startsWith(todayStr));
+  if (todayPts.length >= 1) {
+    const todayOpen = todayPts[0].portfolio_value;
+    const todayRet  = (pv - todayOpen) / todayOpen * 100;
+    const todayStr2 = (todayRet >= 0 ? '+' : '') + todayRet.toFixed(2) + '%';
+    const todayColor = todayRet >= 0 ? 'var(--green)' : 'var(--red)';
+    document.getElementById('todayReturn').textContent = todayStr2;
+    document.getElementById('todayReturn').style.color = todayColor;
+    document.getElementById('todayReturnLabel').textContent = 'today ' + todayStr2;
+    document.getElementById('todayReturnLabel').style.color = todayColor;
+  }
   // Stats
   const trades = d.trade_log || [];
   const closedTrades = trades.filter(t => t.status === 'closed');
@@ -950,8 +968,9 @@ function drawEquityChart(d) {
       data: {
         labels: ['Start', 'Now'],
         datasets: [
-          { label: 'Synapse', data: [sc, sc], borderColor: '#e8472a', backgroundColor: 'rgba(232,71,42,0.08)', borderWidth: 2.5, pointRadius: 0, tension: 0.4, fill: true },
-          { label: 'SPY', data: [sc, sc], borderColor: '#b0aaa3', borderWidth: 1.5, pointRadius: 0, tension: 0.4, fill: false },
+          { label: 'Synapse',    data: [sc, sc], borderColor: '#e8472a', backgroundColor: 'rgba(232,71,42,0.08)', borderWidth: 2.5, pointRadius: 0, tension: 0.4, fill: true },
+          { label: 'Buy & Hold', data: [sc, sc], borderColor: '#4a90d9', borderWidth: 1.5, pointRadius: 0, tension: 0.4, fill: false, borderDash: [4,3] },
+          { label: 'SPY',        data: [sc, sc], borderColor: '#b0aaa3', borderWidth: 1.5, pointRadius: 0, tension: 0.4, fill: false },
         ],
       },
       options: _chartOptions(),
@@ -961,10 +980,18 @@ function drawEquityChart(d) {
 
   const labels = history.map((p, i) => {
     const dt = new Date(p.timestamp);
-    return dt.toLocaleString('en-US', {month:'short', day:'numeric', hour:'2-digit', minute:'2-digit'});
+    const prev = i > 0 ? new Date(history[i-1].timestamp) : null;
+    const newDay = !prev || dt.toDateString() !== prev.toDateString();
+    if (newDay) {
+      // Show full date at start of each new day
+      return dt.toLocaleString('en-US', {month:'short', day:'numeric'});
+    }
+    // Within the same day show time only
+    return dt.toLocaleString('en-US', {hour:'2-digit', minute:'2-digit'});
   });
   const synData = history.map(p => p.portfolio_value);
   const spyData = history.map(p => p.spy_value);
+  const bhData  = history.map(p => p.buy_hold_value != null ? p.buy_hold_value : sc);
 
   equityChartInstance = new Chart(ctx, {
     type: 'line',
@@ -980,6 +1007,16 @@ function drawEquityChart(d) {
           pointRadius: 0,
           tension: 0.4,
           fill: true,
+        },
+        {
+          label: 'Buy & Hold',
+          data: bhData,
+          borderColor: '#4a90d9',
+          borderWidth: 1.5,
+          pointRadius: 0,
+          tension: 0.4,
+          fill: false,
+          borderDash: [4, 3],
         },
         {
           label: 'SPY',
