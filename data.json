@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-03-10T21:20:17.589612+00:00",
-  "portfolio_value": 100819.01,
+  "generated_at": "2026-03-10T21:28:07.477874+00:00",
+  "portfolio_value": 100819.82,
   "starting_capital": 100000.0,
   "open_positions": {
     "NVDA": {
@@ -50,22 +50,22 @@
       "qty": 154,
       "side": "long",
       "entry_price": 77.31,
-      "current_price": 78.6,
-      "market_value": 12104.4,
-      "unrealized_pl": 198.66,
-      "unrealized_pct": 1.669,
-      "change_today": -0.9450000000000001
+      "current_price": 78.57,
+      "market_value": 12099.78,
+      "unrealized_pl": 194.04,
+      "unrealized_pct": 1.63,
+      "change_today": -0.983
     },
     {
       "ticker": "MSFT",
       "qty": 24,
       "side": "long",
       "entry_price": 404.357083,
-      "current_price": 405.39,
-      "market_value": 9729.36,
-      "unrealized_pl": 24.790008,
-      "unrealized_pct": 0.255,
-      "change_today": -0.9820000000000001
+      "current_price": 405.79,
+      "market_value": 9738.96,
+      "unrealized_pl": 34.390008,
+      "unrealized_pct": 0.35400000000000004,
+      "change_today": -0.8840000000000001
     },
     {
       "ticker": "NVDA",
@@ -83,22 +83,22 @@
       "qty": 62,
       "side": "long",
       "entry_price": 151.35,
-      "current_price": 151.03,
-      "market_value": 9363.86,
-      "unrealized_pl": -19.84,
-      "unrealized_pct": -0.211,
-      "change_today": -3.4520000000000004
+      "current_price": 150.9,
+      "market_value": 9355.8,
+      "unrealized_pl": -27.9,
+      "unrealized_pct": -0.297,
+      "change_today": -3.535
     },
     {
       "ticker": "QQQ",
       "qty": 11,
       "side": "long",
       "entry_price": 608.924546,
-      "current_price": 608.25,
-      "market_value": 6690.75,
-      "unrealized_pl": -7.420006,
-      "unrealized_pct": -0.11100000000000002,
-      "change_today": 0.08099999999999999
+      "current_price": 608.604,
+      "market_value": 6694.644,
+      "unrealized_pl": -3.526006,
+      "unrealized_pct": -0.053,
+      "change_today": 0.13899999999999998
     }
   ],
   "trades_today": 14,
@@ -1543,1276 +1543,520 @@
   ],
   "equity_history": [
     {
-      "timestamp": "2026-02-10T14:30:00+00:00",
+      "timestamp": "2026-03-09T13:30:00+00:00",
       "portfolio_value": 100000.0,
       "spy_value": 100000.0,
       "buy_hold_value": 100000.0
     },
     {
-      "timestamp": "2026-02-10T15:30:00+00:00",
-      "portfolio_value": 100000.0,
-      "spy_value": 100140.3,
-      "buy_hold_value": 100312.53
-    },
-    {
-      "timestamp": "2026-02-10T16:30:00+00:00",
-      "portfolio_value": 100000.0,
-      "spy_value": 99942.44,
-      "buy_hold_value": 99601.46
-    },
-    {
-      "timestamp": "2026-02-10T17:30:00+00:00",
-      "portfolio_value": 100000.0,
-      "spy_value": 100033.1,
-      "buy_hold_value": 99736.96
-    },
-    {
-      "timestamp": "2026-02-10T18:30:00+00:00",
-      "portfolio_value": 100000.0,
-      "spy_value": 99758.97,
-      "buy_hold_value": 99113.39
-    },
-    {
-      "timestamp": "2026-02-10T19:30:00+00:00",
-      "portfolio_value": 100000.0,
-      "spy_value": 99828.76,
-      "buy_hold_value": 99148.54
-    },
-    {
-      "timestamp": "2026-02-10T20:30:00+00:00",
-      "portfolio_value": 100000.0,
-      "spy_value": 99738.11,
-      "buy_hold_value": 99113.48
-    },
-    {
-      "timestamp": "2026-02-11T14:30:00+00:00",
-      "portfolio_value": 100000.0,
-      "spy_value": 100164.76,
-      "buy_hold_value": 98634.5
-    },
-    {
-      "timestamp": "2026-02-11T15:30:00+00:00",
-      "portfolio_value": 100000.0,
-      "spy_value": 99400.67,
-      "buy_hold_value": 97312.81
-    },
-    {
-      "timestamp": "2026-02-11T16:30:00+00:00",
-      "portfolio_value": 100000.0,
-      "spy_value": 99626.59,
-      "buy_hold_value": 97421.44
-    },
-    {
-      "timestamp": "2026-02-11T17:30:00+00:00",
-      "portfolio_value": 100000.0,
-      "spy_value": 99758.25,
-      "buy_hold_value": 97384.75
-    },
-    {
-      "timestamp": "2026-02-11T18:30:00+00:00",
-      "portfolio_value": 100000.0,
-      "spy_value": 99633.06,
-      "buy_hold_value": 97388.26
-    },
-    {
-      "timestamp": "2026-02-11T19:30:00+00:00",
-      "portfolio_value": 100000.0,
-      "spy_value": 99817.97,
-      "buy_hold_value": 97764.3
-    },
-    {
-      "timestamp": "2026-02-11T20:30:00+00:00",
-      "portfolio_value": 100000.0,
-      "spy_value": 99574.06,
-      "buy_hold_value": 97483.96
-    },
-    {
-      "timestamp": "2026-02-12T14:30:00+00:00",
-      "portfolio_value": 100000.0,
-      "spy_value": 99997.84,
-      "buy_hold_value": 97614.43
-    },
-    {
-      "timestamp": "2026-02-12T15:30:00+00:00",
-      "portfolio_value": 100000.0,
-      "spy_value": 99571.19,
-      "buy_hold_value": 96451.7
-    },
-    {
-      "timestamp": "2026-02-12T16:30:00+00:00",
-      "portfolio_value": 100000.0,
-      "spy_value": 98486.2,
-      "buy_hold_value": 94598.59
-    },
-    {
-      "timestamp": "2026-02-12T17:30:00+00:00",
-      "portfolio_value": 100000.0,
-      "spy_value": 98513.54,
-      "buy_hold_value": 94928.47
-    },
-    {
-      "timestamp": "2026-02-12T18:30:00+00:00",
-      "portfolio_value": 100000.0,
-      "spy_value": 98336.55,
-      "buy_hold_value": 94710.87
-    },
-    {
-      "timestamp": "2026-02-12T19:30:00+00:00",
-      "portfolio_value": 100000.0,
-      "spy_value": 98545.2,
-      "buy_hold_value": 94868.05
-    },
-    {
-      "timestamp": "2026-02-12T20:30:00+00:00",
-      "portfolio_value": 100000.0,
-      "spy_value": 98271.79,
-      "buy_hold_value": 94599.81
-    },
-    {
-      "timestamp": "2026-02-13T14:30:00+00:00",
-      "portfolio_value": 100000.0,
-      "spy_value": 98021.41,
-      "buy_hold_value": 94234.57
-    },
-    {
-      "timestamp": "2026-02-13T15:30:00+00:00",
-      "portfolio_value": 100000.0,
-      "spy_value": 98441.59,
-      "buy_hold_value": 95338.61
-    },
-    {
-      "timestamp": "2026-02-13T16:30:00+00:00",
-      "portfolio_value": 100000.0,
-      "spy_value": 98384.03,
-      "buy_hold_value": 95033.71
-    },
-    {
-      "timestamp": "2026-02-13T17:30:00+00:00",
-      "portfolio_value": 100000.0,
-      "spy_value": 98690.53,
-      "buy_hold_value": 95608.51
-    },
-    {
-      "timestamp": "2026-02-13T18:30:00+00:00",
-      "portfolio_value": 100000.0,
-      "spy_value": 98683.34,
-      "buy_hold_value": 95534.77
-    },
-    {
-      "timestamp": "2026-02-13T19:30:00+00:00",
-      "portfolio_value": 100000.0,
-      "spy_value": 98520.74,
-      "buy_hold_value": 95302.52
-    },
-    {
-      "timestamp": "2026-02-13T20:30:00+00:00",
-      "portfolio_value": 100000.0,
-      "spy_value": 97890.47,
-      "buy_hold_value": 94450.49
-    },
-    {
-      "timestamp": "2026-02-17T14:30:00+00:00",
-      "portfolio_value": 100000.0,
-      "spy_value": 98107.75,
-      "buy_hold_value": 94630.67
-    },
-    {
-      "timestamp": "2026-02-17T15:30:00+00:00",
-      "portfolio_value": 100000.0,
-      "spy_value": 97280.34,
-      "buy_hold_value": 93527.16
-    },
-    {
-      "timestamp": "2026-02-17T16:30:00+00:00",
-      "portfolio_value": 100000.0,
-      "spy_value": 98099.12,
-      "buy_hold_value": 94778.83
-    },
-    {
-      "timestamp": "2026-02-17T17:30:00+00:00",
-      "portfolio_value": 100000.0,
-      "spy_value": 98100.56,
-      "buy_hold_value": 94577.83
-    },
-    {
-      "timestamp": "2026-02-17T18:30:00+00:00",
-      "portfolio_value": 100000.0,
-      "spy_value": 98243.01,
-      "buy_hold_value": 95075.98
-    },
-    {
-      "timestamp": "2026-02-17T19:30:00+00:00",
-      "portfolio_value": 100000.0,
-      "spy_value": 98506.35,
-      "buy_hold_value": 95490.65
-    },
-    {
-      "timestamp": "2026-02-17T20:30:00+00:00",
-      "portfolio_value": 100000.0,
-      "spy_value": 98195.53,
-      "buy_hold_value": 94977.84
-    },
-    {
-      "timestamp": "2026-02-18T14:30:00+00:00",
-      "portfolio_value": 100000.0,
-      "spy_value": 98345.18,
-      "buy_hold_value": 95304.3
-    },
-    {
-      "timestamp": "2026-02-18T15:30:00+00:00",
-      "portfolio_value": 100000.0,
-      "spy_value": 98907.82,
-      "buy_hold_value": 96508.01
-    },
-    {
-      "timestamp": "2026-02-18T16:30:00+00:00",
-      "portfolio_value": 100000.0,
-      "spy_value": 99066.11,
-      "buy_hold_value": 96645.25
-    },
-    {
-      "timestamp": "2026-02-18T17:30:00+00:00",
-      "portfolio_value": 100000.0,
-      "spy_value": 98997.76,
-      "buy_hold_value": 96534.56
-    },
-    {
-      "timestamp": "2026-02-18T18:30:00+00:00",
-      "portfolio_value": 100000.0,
-      "spy_value": 98965.38,
-      "buy_hold_value": 96351.38
-    },
-    {
-      "timestamp": "2026-02-18T19:30:00+00:00",
-      "portfolio_value": 100000.0,
-      "spy_value": 98699.89,
-      "buy_hold_value": 96003.99
-    },
-    {
-      "timestamp": "2026-02-18T20:30:00+00:00",
-      "portfolio_value": 100000.0,
-      "spy_value": 98586.93,
-      "buy_hold_value": 95768.86
-    },
-    {
-      "timestamp": "2026-02-19T14:30:00+00:00",
-      "portfolio_value": 100000.0,
-      "spy_value": 98432.96,
-      "buy_hold_value": 95184.43
-    },
-    {
-      "timestamp": "2026-02-19T15:30:00+00:00",
-      "portfolio_value": 100000.0,
-      "spy_value": 98660.32,
-      "buy_hold_value": 95866.76
-    },
-    {
-      "timestamp": "2026-02-19T16:30:00+00:00",
-      "portfolio_value": 100000.0,
-      "spy_value": 98581.17,
-      "buy_hold_value": 95814.77
-    },
-    {
-      "timestamp": "2026-02-19T17:30:00+00:00",
-      "portfolio_value": 100000.0,
-      "spy_value": 98411.37,
-      "buy_hold_value": 95507.04
-    },
-    {
-      "timestamp": "2026-02-19T18:30:00+00:00",
-      "portfolio_value": 100000.0,
-      "spy_value": 98162.43,
-      "buy_hold_value": 95059.71
-    },
-    {
-      "timestamp": "2026-02-19T19:30:00+00:00",
-      "portfolio_value": 100000.0,
-      "spy_value": 98332.23,
-      "buy_hold_value": 95287.09
-    },
-    {
-      "timestamp": "2026-02-19T20:30:00+00:00",
-      "portfolio_value": 100000.0,
-      "spy_value": 98323.6,
-      "buy_hold_value": 95423.66
-    },
-    {
-      "timestamp": "2026-02-20T14:30:00+00:00",
-      "portfolio_value": 100000.0,
-      "spy_value": 98332.23,
-      "buy_hold_value": 95440.01
-    },
-    {
-      "timestamp": "2026-02-20T15:30:00+00:00",
-      "portfolio_value": 100000.0,
-      "spy_value": 98727.95,
-      "buy_hold_value": 95871.71
-    },
-    {
-      "timestamp": "2026-02-20T16:30:00+00:00",
-      "portfolio_value": 100000.0,
-      "spy_value": 98899.19,
-      "buy_hold_value": 96273.48
-    },
-    {
-      "timestamp": "2026-02-20T17:30:00+00:00",
-      "portfolio_value": 100000.0,
-      "spy_value": 98659.6,
-      "buy_hold_value": 95873.23
-    },
-    {
-      "timestamp": "2026-02-20T18:30:00+00:00",
-      "portfolio_value": 100000.0,
-      "spy_value": 98969.7,
-      "buy_hold_value": 96289.95
-    },
-    {
-      "timestamp": "2026-02-20T19:30:00+00:00",
-      "portfolio_value": 100000.0,
-      "spy_value": 99112.15,
-      "buy_hold_value": 96427.22
-    },
-    {
-      "timestamp": "2026-02-20T20:30:00+00:00",
-      "portfolio_value": 100000.0,
-      "spy_value": 99066.11,
-      "buy_hold_value": 96267.37
-    },
-    {
-      "timestamp": "2026-02-23T14:30:00+00:00",
-      "portfolio_value": 100000.0,
-      "spy_value": 99195.61,
-      "buy_hold_value": 95729.72
-    },
-    {
-      "timestamp": "2026-02-23T15:30:00+00:00",
-      "portfolio_value": 100000.0,
-      "spy_value": 98427.2,
-      "buy_hold_value": 94719.5
-    },
-    {
-      "timestamp": "2026-02-23T16:30:00+00:00",
-      "portfolio_value": 100000.0,
-      "spy_value": 98234.38,
-      "buy_hold_value": 94459.08
-    },
-    {
-      "timestamp": "2026-02-23T17:30:00+00:00",
-      "portfolio_value": 100000.0,
-      "spy_value": 98040.12,
-      "buy_hold_value": 94177.72
-    },
-    {
-      "timestamp": "2026-02-23T18:30:00+00:00",
-      "portfolio_value": 100000.0,
-      "spy_value": 98388.35,
-      "buy_hold_value": 94463.9
-    },
-    {
-      "timestamp": "2026-02-23T19:30:00+00:00",
-      "portfolio_value": 100000.0,
-      "spy_value": 98041.56,
-      "buy_hold_value": 94204.7
-    },
-    {
-      "timestamp": "2026-02-23T20:30:00+00:00",
-      "portfolio_value": 100000.0,
-      "spy_value": 98148.76,
-      "buy_hold_value": 94283.3
-    },
-    {
-      "timestamp": "2026-02-24T14:30:00+00:00",
-      "portfolio_value": 100000.0,
-      "spy_value": 97952.34,
-      "buy_hold_value": 93709.29
-    },
-    {
-      "timestamp": "2026-02-24T15:30:00+00:00",
-      "portfolio_value": 100000.0,
-      "spy_value": 98730.11,
-      "buy_hold_value": 94835.5
-    },
-    {
-      "timestamp": "2026-02-24T16:30:00+00:00",
-      "portfolio_value": 100000.0,
-      "spy_value": 98603.48,
-      "buy_hold_value": 94755.5
-    },
-    {
-      "timestamp": "2026-02-24T17:30:00+00:00",
-      "portfolio_value": 100000.0,
-      "spy_value": 98920.77,
-      "buy_hold_value": 95118.24
-    },
-    {
-      "timestamp": "2026-02-24T18:30:00+00:00",
-      "portfolio_value": 100000.0,
-      "spy_value": 98891.27,
-      "buy_hold_value": 95231.37
-    },
-    {
-      "timestamp": "2026-02-24T19:30:00+00:00",
-      "portfolio_value": 100000.0,
-      "spy_value": 98840.19,
-      "buy_hold_value": 95180.34
-    },
-    {
-      "timestamp": "2026-02-24T20:30:00+00:00",
-      "portfolio_value": 100000.0,
-      "spy_value": 98857.46,
-      "buy_hold_value": 95186.9
-    },
-    {
-      "timestamp": "2026-02-25T14:30:00+00:00",
-      "portfolio_value": 100000.0,
-      "spy_value": 99407.14,
-      "buy_hold_value": 96235.06
-    },
-    {
-      "timestamp": "2026-02-25T15:30:00+00:00",
-      "portfolio_value": 100000.0,
-      "spy_value": 99348.15,
-      "buy_hold_value": 96690.1
-    },
-    {
-      "timestamp": "2026-02-25T16:30:00+00:00",
-      "portfolio_value": 100000.0,
-      "spy_value": 99512.19,
-      "buy_hold_value": 97036.38
-    },
-    {
-      "timestamp": "2026-02-25T17:30:00+00:00",
-      "portfolio_value": 100000.0,
-      "spy_value": 99584.14,
-      "buy_hold_value": 97080.73
-    },
-    {
-      "timestamp": "2026-02-25T18:30:00+00:00",
-      "portfolio_value": 100000.0,
-      "spy_value": 99625.87,
-      "buy_hold_value": 97112.89
-    },
-    {
-      "timestamp": "2026-02-25T19:30:00+00:00",
-      "portfolio_value": 100000.0,
-      "spy_value": 99735.23,
-      "buy_hold_value": 97339.01
-    },
-    {
-      "timestamp": "2026-02-25T20:30:00+00:00",
-      "portfolio_value": 100000.0,
-      "spy_value": 99702.13,
-      "buy_hold_value": 97227.35
-    },
-    {
-      "timestamp": "2026-02-26T14:30:00+00:00",
-      "portfolio_value": 100000.0,
-      "spy_value": 99608.6,
-      "buy_hold_value": 97121.07
-    },
-    {
-      "timestamp": "2026-02-26T15:30:00+00:00",
-      "portfolio_value": 100000.0,
-      "spy_value": 98510.66,
-      "buy_hold_value": 95795.02
-    },
-    {
-      "timestamp": "2026-02-26T16:30:00+00:00",
-      "portfolio_value": 100000.0,
-      "spy_value": 99076.18,
-      "buy_hold_value": 96685.95
-    },
-    {
-      "timestamp": "2026-02-26T17:30:00+00:00",
-      "portfolio_value": 100000.0,
-      "spy_value": 98834.43,
-      "buy_hold_value": 96369.16
-    },
-    {
-      "timestamp": "2026-02-26T18:30:00+00:00",
-      "portfolio_value": 100000.0,
-      "spy_value": 98851.7,
-      "buy_hold_value": 96294.58
-    },
-    {
-      "timestamp": "2026-02-26T19:30:00+00:00",
-      "portfolio_value": 100000.0,
-      "spy_value": 99176.91,
-      "buy_hold_value": 96785.03
-    },
-    {
-      "timestamp": "2026-02-26T20:30:00+00:00",
-      "portfolio_value": 100000.0,
-      "spy_value": 99202.81,
-      "buy_hold_value": 96762.86
-    },
-    {
-      "timestamp": "2026-02-27T14:30:00+00:00",
-      "portfolio_value": 100000.0,
-      "spy_value": 98386.91,
-      "buy_hold_value": 95494.35
-    },
-    {
-      "timestamp": "2026-02-27T15:30:00+00:00",
-      "portfolio_value": 100000.0,
-      "spy_value": 98489.08,
-      "buy_hold_value": 95542.99
-    },
-    {
-      "timestamp": "2026-02-27T16:30:00+00:00",
-      "portfolio_value": 100000.0,
-      "spy_value": 98742.34,
-      "buy_hold_value": 95529.93
-    },
-    {
-      "timestamp": "2026-02-27T17:30:00+00:00",
-      "portfolio_value": 100000.0,
-      "spy_value": 98552.39,
-      "buy_hold_value": 95120.9
-    },
-    {
-      "timestamp": "2026-02-27T18:30:00+00:00",
-      "portfolio_value": 100000.0,
-      "spy_value": 98378.28,
-      "buy_hold_value": 94776.84
-    },
-    {
-      "timestamp": "2026-02-27T19:30:00+00:00",
-      "portfolio_value": 100000.0,
-      "spy_value": 98343.74,
-      "buy_hold_value": 94712.99
-    },
-    {
-      "timestamp": "2026-02-27T20:30:00+00:00",
-      "portfolio_value": 100000.0,
-      "spy_value": 98624.34,
-      "buy_hold_value": 94927.56
-    },
-    {
-      "timestamp": "2026-03-02T14:30:00+00:00",
-      "portfolio_value": 100000.0,
-      "spy_value": 98022.85,
-      "buy_hold_value": 95044.1
-    },
-    {
-      "timestamp": "2026-03-02T15:30:00+00:00",
-      "portfolio_value": 100000.0,
-      "spy_value": 98273.23,
-      "buy_hold_value": 95735.41
-    },
-    {
-      "timestamp": "2026-03-02T16:30:00+00:00",
-      "portfolio_value": 100000.0,
-      "spy_value": 98402.74,
-      "buy_hold_value": 96069.99
-    },
-    {
-      "timestamp": "2026-03-02T17:30:00+00:00",
-      "portfolio_value": 100000.0,
-      "spy_value": 98729.39,
-      "buy_hold_value": 96524.48
-    },
-    {
-      "timestamp": "2026-03-02T18:30:00+00:00",
-      "portfolio_value": 100000.0,
-      "spy_value": 98794.14,
-      "buy_hold_value": 96567.33
-    },
-    {
-      "timestamp": "2026-03-02T19:30:00+00:00",
-      "portfolio_value": 100000.0,
-      "spy_value": 99056.03,
-      "buy_hold_value": 96614.74
-    },
-    {
-      "timestamp": "2026-03-02T20:30:00+00:00",
-      "portfolio_value": 100000.0,
-      "spy_value": 98719.31,
-      "buy_hold_value": 96201.02
-    },
-    {
-      "timestamp": "2026-03-03T14:30:00+00:00",
-      "portfolio_value": 100000.0,
-      "spy_value": 97064.49,
-      "buy_hold_value": 94616.03
-    },
-    {
-      "timestamp": "2026-03-03T15:30:00+00:00",
-      "portfolio_value": 100000.0,
-      "spy_value": 96559.42,
-      "buy_hold_value": 93882.98
-    },
-    {
-      "timestamp": "2026-03-03T16:30:00+00:00",
-      "portfolio_value": 100000.0,
-      "spy_value": 97241.49,
-      "buy_hold_value": 95068.06
-    },
-    {
-      "timestamp": "2026-03-03T17:30:00+00:00",
-      "portfolio_value": 100000.0,
-      "spy_value": 97346.53,
-      "buy_hold_value": 95067.61
-    },
-    {
-      "timestamp": "2026-03-03T18:30:00+00:00",
-      "portfolio_value": 100000.0,
-      "spy_value": 97940.83,
-      "buy_hold_value": 96046.4
-    },
-    {
-      "timestamp": "2026-03-03T19:30:00+00:00",
-      "portfolio_value": 100000.0,
-      "spy_value": 97801.97,
-      "buy_hold_value": 95718.09
-    },
-    {
-      "timestamp": "2026-03-03T20:30:00+00:00",
-      "portfolio_value": 100000.0,
-      "spy_value": 97971.05,
-      "buy_hold_value": 95866.97
-    },
-    {
-      "timestamp": "2026-03-04T14:30:00+00:00",
-      "portfolio_value": 100000.0,
-      "spy_value": 98248.05,
-      "buy_hold_value": 97317.62
-    },
-    {
-      "timestamp": "2026-03-04T15:30:00+00:00",
-      "portfolio_value": 100000.0,
-      "spy_value": 98624.34,
-      "buy_hold_value": 98159.33
-    },
-    {
-      "timestamp": "2026-03-04T16:30:00+00:00",
-      "portfolio_value": 100000.0,
-      "spy_value": 98647.37,
-      "buy_hold_value": 98094.69
-    },
-    {
-      "timestamp": "2026-03-04T17:30:00+00:00",
-      "portfolio_value": 100000.0,
-      "spy_value": 98637.29,
-      "buy_hold_value": 97987.64
-    },
-    {
-      "timestamp": "2026-03-04T18:30:00+00:00",
-      "portfolio_value": 100000.0,
-      "spy_value": 98759.61,
-      "buy_hold_value": 98140.15
-    },
-    {
-      "timestamp": "2026-03-04T19:30:00+00:00",
-      "portfolio_value": 100000.0,
-      "spy_value": 98786.95,
-      "buy_hold_value": 98232.02
-    },
-    {
-      "timestamp": "2026-03-04T20:30:00+00:00",
-      "portfolio_value": 100000.0,
-      "spy_value": 98709.24,
-      "buy_hold_value": 98157.08
-    },
-    {
-      "timestamp": "2026-03-05T14:30:00+00:00",
-      "portfolio_value": 100000.0,
-      "spy_value": 98443.03,
-      "buy_hold_value": 98188.51
-    },
-    {
-      "timestamp": "2026-03-05T15:30:00+00:00",
-      "portfolio_value": 100000.0,
-      "spy_value": 97874.64,
-      "buy_hold_value": 97270.02
-    },
-    {
-      "timestamp": "2026-03-05T16:30:00+00:00",
-      "portfolio_value": 100000.0,
-      "spy_value": 97874.64,
-      "buy_hold_value": 97293.73
-    },
-    {
-      "timestamp": "2026-03-05T17:30:00+00:00",
-      "portfolio_value": 100000.0,
-      "spy_value": 97466.69,
-      "buy_hold_value": 96743.47
-    },
-    {
-      "timestamp": "2026-03-05T18:30:00+00:00",
-      "portfolio_value": 100000.0,
-      "spy_value": 97333.58,
-      "buy_hold_value": 96668.53
-    },
-    {
-      "timestamp": "2026-03-05T19:30:00+00:00",
-      "portfolio_value": 100000.0,
-      "spy_value": 97281.78,
-      "buy_hold_value": 96670.72
-    },
-    {
-      "timestamp": "2026-03-05T20:30:00+00:00",
-      "portfolio_value": 100000.0,
-      "spy_value": 97857.37,
-      "buy_hold_value": 97297.53
-    },
-    {
-      "timestamp": "2026-03-06T14:30:00+00:00",
-      "portfolio_value": 100000.0,
-      "spy_value": 96760.87,
-      "buy_hold_value": 95891.23
-    },
-    {
-      "timestamp": "2026-03-06T15:30:00+00:00",
-      "portfolio_value": 100000.0,
-      "spy_value": 97090.4,
-      "buy_hold_value": 96465.67
-    },
-    {
-      "timestamp": "2026-03-06T16:30:00+00:00",
-      "portfolio_value": 100000.0,
-      "spy_value": 96939.3,
-      "buy_hold_value": 96392.77
-    },
-    {
-      "timestamp": "2026-03-06T17:30:00+00:00",
-      "portfolio_value": 100000.0,
-      "spy_value": 97008.37,
-      "buy_hold_value": 96568.12
-    },
-    {
-      "timestamp": "2026-03-06T18:30:00+00:00",
-      "portfolio_value": 100000.0,
-      "spy_value": 97132.13,
-      "buy_hold_value": 96870.07
-    },
-    {
-      "timestamp": "2026-03-06T19:30:00+00:00",
-      "portfolio_value": 100000.0,
-      "spy_value": 97140.76,
-      "buy_hold_value": 96842.92
-    },
-    {
-      "timestamp": "2026-03-06T20:30:00+00:00",
-      "portfolio_value": 100000.0,
-      "spy_value": 96691.8,
-      "buy_hold_value": 96119.18
-    },
-    {
-      "timestamp": "2026-03-09T13:30:00+00:00",
-      "portfolio_value": 100000.0,
-      "spy_value": 95881.66,
-      "buy_hold_value": 95415.08
-    },
-    {
       "timestamp": "2026-03-09T14:30:00+00:00",
       "portfolio_value": 100000.0,
-      "spy_value": 95697.47,
-      "buy_hold_value": 94787.6
+      "spy_value": 99807.9,
+      "buy_hold_value": 99363.15
     },
     {
       "timestamp": "2026-03-09T15:30:00+00:00",
       "portfolio_value": 100000.0,
-      "spy_value": 96245.72,
-      "buy_hold_value": 95467.8
+      "spy_value": 100379.7,
+      "buy_hold_value": 100081.03
     },
     {
       "timestamp": "2026-03-09T16:30:00+00:00",
       "portfolio_value": 100000.0,
-      "spy_value": 96526.32,
-      "buy_hold_value": 95554.66
+      "spy_value": 100672.35,
+      "buy_hold_value": 100184.91
     },
     {
       "timestamp": "2026-03-09T17:30:00+00:00",
       "portfolio_value": 99829.89,
-      "spy_value": 96241.4,
-      "buy_hold_value": 95195.29
+      "spy_value": 100375.2,
+      "buy_hold_value": 99809.95
     },
     {
       "timestamp": "2026-03-09T18:30:00+00:00",
       "portfolio_value": 100022.38,
-      "spy_value": 96573.8,
-      "buy_hold_value": 95623.79
+      "spy_value": 100721.88,
+      "buy_hold_value": 100250.14
     },
     {
       "timestamp": "2026-03-09T19:30:00+00:00",
       "portfolio_value": 100798.51,
-      "spy_value": 97634.33,
-      "buy_hold_value": 97006.8
+      "spy_value": 101827.95,
+      "buy_hold_value": 101712.2
     },
     {
       "timestamp": "2026-03-10T13:30:00+00:00",
       "portfolio_value": 100984.48,
-      "spy_value": 97501.94,
-      "buy_hold_value": 97121.95
+      "spy_value": 101689.88,
+      "buy_hold_value": 101858.93
     },
     {
       "timestamp": "2026-03-10T13:35:00+00:00",
       "portfolio_value": 100902.12,
-      "spy_value": 97491.87,
-      "buy_hold_value": 96905.14
+      "spy_value": 101679.37,
+      "buy_hold_value": 101641.84
     },
     {
       "timestamp": "2026-03-10T13:40:00+00:00",
       "portfolio_value": 100930.47,
-      "spy_value": 97451.58,
-      "buy_hold_value": 96899.18
+      "spy_value": 101637.35,
+      "buy_hold_value": 101622.98
     },
     {
       "timestamp": "2026-03-10T13:45:00+00:00",
       "portfolio_value": 100828.06,
-      "spy_value": 97455.9,
-      "buy_hold_value": 96964.83
+      "spy_value": 101641.85,
+      "buy_hold_value": 101695.33
     },
     {
       "timestamp": "2026-03-10T13:50:00+00:00",
       "portfolio_value": 100932.78,
-      "spy_value": 97317.75,
-      "buy_hold_value": 96877.77
+      "spy_value": 101497.78,
+      "buy_hold_value": 101608.59
     },
     {
       "timestamp": "2026-03-10T13:55:00+00:00",
       "portfolio_value": 100942.02,
-      "spy_value": 97265.95,
-      "buy_hold_value": 96669.0
+      "spy_value": 101443.75,
+      "buy_hold_value": 101384.5
     },
     {
       "timestamp": "2026-03-10T14:00:00+00:00",
       "portfolio_value": 100820.36,
-      "spy_value": 97286.1,
-      "buy_hold_value": 96587.82
+      "spy_value": 101464.76,
+      "buy_hold_value": 101317.27
     },
     {
       "timestamp": "2026-03-10T14:05:00+00:00",
       "portfolio_value": 100852.7,
-      "spy_value": 97117.74,
-      "buy_hold_value": 96231.6
+      "spy_value": 101289.17,
+      "buy_hold_value": 100936.48
     },
     {
       "timestamp": "2026-03-10T14:10:00+00:00",
       "portfolio_value": 100704.86,
-      "spy_value": 97222.78,
-      "buy_hold_value": 96418.02
+      "spy_value": 101398.73,
+      "buy_hold_value": 101134.95
     },
     {
       "timestamp": "2026-03-10T14:15:00+00:00",
       "portfolio_value": 100752.6,
-      "spy_value": 97299.05,
-      "buy_hold_value": 96504.83
+      "spy_value": 101478.27,
+      "buy_hold_value": 101223.8
     },
     {
       "timestamp": "2026-03-10T14:20:00+00:00",
       "portfolio_value": 100734.2,
-      "spy_value": 97442.94,
-      "buy_hold_value": 96581.88
+      "spy_value": 101628.35,
+      "buy_hold_value": 101307.76
     },
     {
       "timestamp": "2026-03-10T14:25:00+00:00",
       "portfolio_value": 100784.17,
-      "spy_value": 97495.47,
-      "buy_hold_value": 96683.2
+      "spy_value": 101683.13,
+      "buy_hold_value": 101414.9
     },
     {
       "timestamp": "2026-03-10T14:30:00+00:00",
       "portfolio_value": 100817.28,
-      "spy_value": 97696.2,
-      "buy_hold_value": 96869.32
+      "spy_value": 101892.48,
+      "buy_hold_value": 101616.3
     },
     {
       "timestamp": "2026-03-10T14:35:00+00:00",
       "portfolio_value": 100834.22,
-      "spy_value": 97784.7,
-      "buy_hold_value": 97003.3
+      "spy_value": 101984.78,
+      "buy_hold_value": 101758.61
     },
     {
       "timestamp": "2026-03-10T14:40:00+00:00",
       "portfolio_value": 100874.26,
-      "spy_value": 97854.49,
-      "buy_hold_value": 97076.31
+      "spy_value": 102057.57,
+      "buy_hold_value": 101834.26
     },
     {
       "timestamp": "2026-03-10T14:45:00+00:00",
       "portfolio_value": 100895.82,
-      "spy_value": 97897.66,
-      "buy_hold_value": 97147.84
+      "spy_value": 102102.59,
+      "buy_hold_value": 101915.75
     },
     {
       "timestamp": "2026-03-10T14:50:00+00:00",
       "portfolio_value": 100942.02,
-      "spy_value": 97956.66,
-      "buy_hold_value": 97233.61
+      "spy_value": 102164.13,
+      "buy_hold_value": 102008.02
     },
     {
       "timestamp": "2026-03-10T14:55:00+00:00",
       "portfolio_value": 100948.18,
-      "spy_value": 98009.9,
-      "buy_hold_value": 97325.7
+      "spy_value": 102219.65,
+      "buy_hold_value": 102106.33
     },
     {
       "timestamp": "2026-03-10T15:00:00+00:00",
       "portfolio_value": 101006.7,
-      "spy_value": 98048.75,
-      "buy_hold_value": 97390.47
+      "spy_value": 102260.18,
+      "buy_hold_value": 102177.11
     },
     {
       "timestamp": "2026-03-10T15:05:00+00:00",
       "portfolio_value": 101065.22,
-      "spy_value": 97935.07,
-      "buy_hold_value": 97115.15
+      "spy_value": 102141.61,
+      "buy_hold_value": 101891.0
     },
     {
       "timestamp": "2026-03-10T15:10:00+00:00",
       "portfolio_value": 100974.36,
-      "spy_value": 97906.29,
-      "buy_hold_value": 97160.66
+      "spy_value": 102111.6,
+      "buy_hold_value": 101933.88
     },
     {
       "timestamp": "2026-03-10T15:15:00+00:00",
       "portfolio_value": 100975.13,
-      "spy_value": 98051.63,
-      "buy_hold_value": 97317.27
+      "spy_value": 102263.18,
+      "buy_hold_value": 102093.6
     },
     {
       "timestamp": "2026-03-10T15:20:00+00:00",
       "portfolio_value": 100970.51,
-      "spy_value": 98005.58,
-      "buy_hold_value": 97178.9
+      "spy_value": 102215.15,
+      "buy_hold_value": 101957.37
     },
     {
       "timestamp": "2026-03-10T15:25:00+00:00",
       "portfolio_value": 100963.58,
-      "spy_value": 98005.58,
-      "buy_hold_value": 97150.56
+      "spy_value": 102215.15,
+      "buy_hold_value": 101930.34
     },
     {
       "timestamp": "2026-03-10T15:30:00+00:00",
       "portfolio_value": 100965.89,
-      "spy_value": 97930.76,
-      "buy_hold_value": 97025.34
+      "spy_value": 102137.11,
+      "buy_hold_value": 101802.68
     },
     {
       "timestamp": "2026-03-10T15:35:00+00:00",
       "portfolio_value": 100970.51,
-      "spy_value": 97999.11,
-      "buy_hold_value": 97108.33
+      "spy_value": 102208.4,
+      "buy_hold_value": 101885.25
     },
     {
       "timestamp": "2026-03-10T15:40:00+00:00",
       "portfolio_value": 100986.34,
-      "spy_value": 98067.46,
-      "buy_hold_value": 97179.48
+      "spy_value": 102279.69,
+      "buy_hold_value": 101958.71
     },
     {
       "timestamp": "2026-03-10T15:45:00+00:00",
       "portfolio_value": 100988.22,
-      "spy_value": 98027.17,
-      "buy_hold_value": 97094.38
+      "spy_value": 102237.66,
+      "buy_hold_value": 101866.71
     },
     {
       "timestamp": "2026-03-10T15:50:00+00:00",
       "portfolio_value": 100989.76,
-      "spy_value": 97994.07,
-      "buy_hold_value": 97105.53
+      "spy_value": 102203.15,
+      "buy_hold_value": 101876.17
     },
     {
       "timestamp": "2026-03-10T15:55:00+00:00",
       "portfolio_value": 100978.21,
-      "spy_value": 98050.19,
-      "buy_hold_value": 97173.4
+      "spy_value": 102261.68,
+      "buy_hold_value": 101948.83
     },
     {
       "timestamp": "2026-03-10T16:00:00+00:00",
       "portfolio_value": 100983.6,
-      "spy_value": 97933.63,
-      "buy_hold_value": 97091.18
+      "spy_value": 102140.11,
+      "buy_hold_value": 101859.51
     },
     {
       "timestamp": "2026-03-10T16:05:00+00:00",
       "portfolio_value": 100971.28,
-      "spy_value": 97845.86,
-      "buy_hold_value": 96922.76
+      "spy_value": 102048.57,
+      "buy_hold_value": 101683.14
     },
     {
       "timestamp": "2026-03-10T16:10:00+00:00",
       "portfolio_value": 100911.22,
-      "spy_value": 97927.16,
-      "buy_hold_value": 97020.77
+      "spy_value": 102133.36,
+      "buy_hold_value": 101784.92
     },
     {
       "timestamp": "2026-03-10T16:15:00+00:00",
       "portfolio_value": 100928.16,
-      "spy_value": 97991.19,
-      "buy_hold_value": 97116.45
+      "spy_value": 102200.14,
+      "buy_hold_value": 101885.42
     },
     {
       "timestamp": "2026-03-10T16:20:00+00:00",
       "portfolio_value": 100957.42,
-      "spy_value": 97917.81,
-      "buy_hold_value": 97143.67
+      "spy_value": 102123.6,
+      "buy_hold_value": 101912.51
     },
     {
       "timestamp": "2026-03-10T16:25:00+00:00",
       "portfolio_value": 100979.75,
-      "spy_value": 97936.51,
-      "buy_hold_value": 97198.93
+      "spy_value": 102143.11,
+      "buy_hold_value": 101965.21
     },
     {
       "timestamp": "2026-03-10T16:30:00+00:00",
       "portfolio_value": 100964.35,
-      "spy_value": 98043.0,
-      "buy_hold_value": 97297.55
+      "spy_value": 102254.17,
+      "buy_hold_value": 102069.17
     },
     {
       "timestamp": "2026-03-10T16:35:00+00:00",
       "portfolio_value": 100999.0,
-      "spy_value": 98077.53,
-      "buy_hold_value": 97330.72
+      "spy_value": 102290.19,
+      "buy_hold_value": 102104.74
     },
     {
       "timestamp": "2026-03-10T16:40:00+00:00",
       "portfolio_value": 101015.17,
-      "spy_value": 98071.78,
-      "buy_hold_value": 97383.77
+      "spy_value": 102284.19,
+      "buy_hold_value": 102161.12
     },
     {
       "timestamp": "2026-03-10T16:45:00+00:00",
       "portfolio_value": 101022.52,
-      "spy_value": 97995.51,
-      "buy_hold_value": 97213.77
+      "spy_value": 102204.65,
+      "buy_hold_value": 101983.79
     },
     {
       "timestamp": "2026-03-10T16:50:00+00:00",
       "portfolio_value": 100994.38,
-      "spy_value": 98070.34,
-      "buy_hold_value": 97291.52
+      "spy_value": 102282.69,
+      "buy_hold_value": 102068.4
     },
     {
       "timestamp": "2026-03-10T16:55:00+00:00",
       "portfolio_value": 100994.38,
-      "spy_value": 98061.7,
-      "buy_hold_value": 97236.26
+      "spy_value": 102273.68,
+      "buy_hold_value": 102011.09
     },
     {
       "timestamp": "2026-03-10T17:00:00+00:00",
       "portfolio_value": 100989.76,
-      "spy_value": 98119.98,
-      "buy_hold_value": 97278.37
+      "spy_value": 102334.46,
+      "buy_hold_value": 102053.06
     },
     {
       "timestamp": "2026-03-10T17:05:00+00:00",
       "portfolio_value": 100963.58,
-      "spy_value": 98149.48,
-      "buy_hold_value": 97256.67
+      "spy_value": 102365.23,
+      "buy_hold_value": 102033.27
     },
     {
       "timestamp": "2026-03-10T17:10:00+00:00",
       "portfolio_value": 100952.8,
-      "spy_value": 98103.43,
-      "buy_hold_value": 97220.19
+      "spy_value": 102317.2,
+      "buy_hold_value": 101996.51
     },
     {
       "timestamp": "2026-03-10T17:15:00+00:00",
       "portfolio_value": 100983.6,
-      "spy_value": 98239.42,
-      "buy_hold_value": 97465.36
+      "spy_value": 102459.03,
+      "buy_hold_value": 102256.48
     },
     {
       "timestamp": "2026-03-10T17:20:00+00:00",
       "portfolio_value": 101065.22,
-      "spy_value": 98232.94,
-      "buy_hold_value": 97467.22
+      "spy_value": 102452.28,
+      "buy_hold_value": 102260.06
     },
     {
       "timestamp": "2026-03-10T17:25:00+00:00",
       "portfolio_value": 101081.39,
-      "spy_value": 98315.68,
-      "buy_hold_value": 97520.78
+      "spy_value": 102538.57,
+      "buy_hold_value": 102313.42
     },
     {
       "timestamp": "2026-03-10T17:30:00+00:00",
       "portfolio_value": 101052.13,
-      "spy_value": 98143.72,
-      "buy_hold_value": 97265.33
+      "spy_value": 102359.23,
+      "buy_hold_value": 102046.47
     },
     {
       "timestamp": "2026-03-10T17:35:00+00:00",
       "portfolio_value": 101008.24,
-      "spy_value": 98044.44,
-      "buy_hold_value": 97082.64
+      "spy_value": 102255.67,
+      "buy_hold_value": 101852.38
     },
     {
       "timestamp": "2026-03-10T17:40:00+00:00",
       "portfolio_value": 100948.18,
-      "spy_value": 98035.8,
-      "buy_hold_value": 97131.01
+      "spy_value": 102246.67,
+      "buy_hold_value": 101904.39
     },
     {
       "timestamp": "2026-03-10T17:45:00+00:00",
       "portfolio_value": 100980.52,
-      "spy_value": 98145.16,
-      "buy_hold_value": 97311.83
+      "spy_value": 102360.73,
+      "buy_hold_value": 102091.18
     },
     {
       "timestamp": "2026-03-10T17:50:00+00:00",
       "portfolio_value": 101002.85,
-      "spy_value": 98176.82,
-      "buy_hold_value": 97365.35
+      "spy_value": 102393.74,
+      "buy_hold_value": 102147.84
     },
     {
       "timestamp": "2026-03-10T17:55:00+00:00",
       "portfolio_value": 101019.2,
-      "spy_value": 98145.16,
-      "buy_hold_value": 97342.2
+      "spy_value": 102360.73,
+      "buy_hold_value": 102124.63
     },
     {
       "timestamp": "2026-03-10T18:00:00+00:00",
       "portfolio_value": 101026.72,
-      "spy_value": 98145.16,
-      "buy_hold_value": 97369.37
+      "spy_value": 102360.73,
+      "buy_hold_value": 102152.92
     },
     {
       "timestamp": "2026-03-10T18:05:00+00:00",
       "portfolio_value": 101043.66,
-      "spy_value": 98060.26,
-      "buy_hold_value": 97254.38
+      "spy_value": 102272.18,
+      "buy_hold_value": 102031.19
     },
     {
       "timestamp": "2026-03-10T18:10:00+00:00",
       "portfolio_value": 101023.97,
-      "spy_value": 97654.47,
-      "buy_hold_value": 96777.81
+      "spy_value": 101848.96,
+      "buy_hold_value": 101528.74
     },
     {
       "timestamp": "2026-03-10T18:15:00+00:00",
       "portfolio_value": 100955.26,
-      "spy_value": 97572.45,
-      "buy_hold_value": 96762.2
+      "spy_value": 101763.42,
+      "buy_hold_value": 101505.22
     },
     {
       "timestamp": "2026-03-10T18:20:00+00:00",
       "portfolio_value": 100938.14,
-      "spy_value": 97622.82,
-      "buy_hold_value": 96846.14
+      "spy_value": 101815.94,
+      "buy_hold_value": 101597.4
     },
     {
       "timestamp": "2026-03-10T18:25:00+00:00",
       "portfolio_value": 100924.53,
-      "spy_value": 97753.04,
-      "buy_hold_value": 96962.52
+      "spy_value": 101951.76,
+      "buy_hold_value": 101721.74
     },
     {
       "timestamp": "2026-03-10T18:30:00+00:00",
       "portfolio_value": 100918.44,
-      "spy_value": 97805.57,
-      "buy_hold_value": 97006.69
+      "spy_value": 102006.54,
+      "buy_hold_value": 101771.12
     },
     {
       "timestamp": "2026-03-10T18:35:00+00:00",
       "portfolio_value": 100946.56,
-      "spy_value": 97699.08,
-      "buy_hold_value": 96873.68
+      "spy_value": 101895.49,
+      "buy_hold_value": 101631.56
     },
     {
       "timestamp": "2026-03-10T18:40:00+00:00",
       "portfolio_value": 100911.5,
-      "spy_value": 97667.42,
-      "buy_hold_value": 96834.18
+      "spy_value": 101862.47,
+      "buy_hold_value": 101588.11
     },
     {
       "timestamp": "2026-03-10T18:45:00+00:00",
       "portfolio_value": 100890.71,
-      "spy_value": 97689.01,
-      "buy_hold_value": 96874.03
+      "spy_value": 101884.98,
+      "buy_hold_value": 101629.67
     },
     {
       "timestamp": "2026-03-10T18:50:00+00:00",
       "portfolio_value": 100894.81,
-      "spy_value": 97703.4,
-      "buy_hold_value": 96862.5
+      "spy_value": 101899.99,
+      "buy_hold_value": 101612.91
     },
     {
       "timestamp": "2026-03-10T18:55:00+00:00",
       "portfolio_value": 100865.24,
-      "spy_value": 97634.33,
-      "buy_hold_value": 96756.41
+      "spy_value": 101827.95,
+      "buy_hold_value": 101503.18
     },
     {
       "timestamp": "2026-03-10T19:00:00+00:00",
       "portfolio_value": 100813.56,
-      "spy_value": 97647.28,
-      "buy_hold_value": 96801.88
+      "spy_value": 101841.46,
+      "buy_hold_value": 101554.22
     },
     {
       "timestamp": "2026-03-10T19:05:00+00:00",
       "portfolio_value": 100840.72,
-      "spy_value": 97670.3,
-      "buy_hold_value": 96857.56
+      "spy_value": 101865.47,
+      "buy_hold_value": 101609.93
     },
     {
       "timestamp": "2026-03-10T19:10:00+00:00",
       "portfolio_value": 100873.86,
-      "spy_value": 97697.64,
-      "buy_hold_value": 96870.06
+      "spy_value": 101893.98,
+      "buy_hold_value": 101620.19
     },
     {
       "timestamp": "2026-03-10T19:15:00+00:00",
       "portfolio_value": 100881.52,
-      "spy_value": 97756.64,
-      "buy_hold_value": 96959.1
+      "spy_value": 101955.52,
+      "buy_hold_value": 101712.19
     },
     {
       "timestamp": "2026-03-10T19:20:00+00:00",
       "portfolio_value": 100969.09,
-      "spy_value": 97655.91,
-      "buy_hold_value": 96888.04
+      "spy_value": 101850.46,
+      "buy_hold_value": 101635.11
     },
     {
       "timestamp": "2026-03-10T19:25:00+00:00",
       "portfolio_value": 100936.48,
-      "spy_value": 97481.8,
-      "buy_hold_value": 96679.08
+      "spy_value": 101668.87,
+      "buy_hold_value": 101415.51
     },
     {
       "timestamp": "2026-03-10T19:30:00+00:00",
       "portfolio_value": 100838.09,
-      "spy_value": 97424.24,
-      "buy_hold_value": 96683.71
+      "spy_value": 101608.84,
+      "buy_hold_value": 101416.22
     },
     {
       "timestamp": "2026-03-10T19:35:00+00:00",
       "portfolio_value": 100841.53,
-      "spy_value": 97486.11,
-      "buy_hold_value": 96749.06
+      "spy_value": 101673.37,
+      "buy_hold_value": 101486.76
     },
     {
       "timestamp": "2026-03-10T19:40:00+00:00",
       "portfolio_value": 100870.2,
-      "spy_value": 97484.67,
-      "buy_hold_value": 96741.25
+      "spy_value": 101671.87,
+      "buy_hold_value": 101479.68
     },
     {
       "timestamp": "2026-03-10T19:45:00+00:00",
       "portfolio_value": 100871.43,
-      "spy_value": 97382.51,
-      "buy_hold_value": 96596.21
+      "spy_value": 101565.31,
+      "buy_hold_value": 101329.4
     },
     {
       "timestamp": "2026-03-10T19:50:00+00:00",
       "portfolio_value": 100765.09,
-      "spy_value": 97383.95,
-      "buy_hold_value": 96604.86
+      "spy_value": 101566.81,
+      "buy_hold_value": 101340.03
     },
     {
       "timestamp": "2026-03-10T19:55:00+00:00",
       "portfolio_value": 100778.89,
-      "spy_value": 97437.19,
-      "buy_hold_value": 96673.69
+      "spy_value": 101622.34,
+      "buy_hold_value": 101408.35
     },
     {
       "timestamp": "2026-03-10T20:00:00+00:00",
       "portfolio_value": 100813.09,
-      "spy_value": 97427.12,
-      "buy_hold_value": 96680.18
+      "spy_value": 101611.84,
+      "buy_hold_value": 101415.27
     }
   ],
   "cost_data": {
