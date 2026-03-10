@@ -1,0 +1,105 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="800" viewBox="0 0 800 800">
+  <g fill="none" stroke="#1a1a1a" stroke-width="0.8" opacity="0.20">
+    <!-- formula fragments -->
+    <text x="45" y="78" font-family="serif" font-size="11" fill="#1a1a1a" stroke="none" font-style="italic">Σ(w·x)</text>
+    <text x="620" y="145" font-family="serif" font-size="10" fill="#1a1a1a" stroke="none" font-style="italic">∂L/∂θ</text>
+    <text x="340" y="52" font-family="serif" font-size="9" fill="#1a1a1a" stroke="none">μ = E[r]</text>
+    <text x="155" y="390" font-family="serif" font-size="10" fill="#1a1a1a" stroke="none" font-style="italic">σ√T</text>
+    <text x="510" y="480" font-family="serif" font-size="11" fill="#1a1a1a" stroke="none">P(x|θ)</text>
+    <text x="680" y="340" font-family="serif" font-size="9" fill="#1a1a1a" stroke="none" font-style="italic">∇f(x)</text>
+    <text x="90" y="580" font-family="serif" font-size="10" fill="#1a1a1a" stroke="none">argmax</text>
+    <text x="420" y="710" font-family="serif" font-size="11" fill="#1a1a1a" stroke="none" font-style="italic">∫p(x)dx</text>
+    <text x="250" y="200" font-family="serif" font-size="9" fill="#1a1a1a" stroke="none">R = TP/SL</text>
+    <text x="700" y="600" font-family="serif" font-size="10" fill="#1a1a1a" stroke="none" font-style="italic">α + β·r</text>
+    <text x="50" y="250" font-family="serif" font-size="9" fill="#1a1a1a" stroke="none">log(1+r)</text>
+    <text x="480" y="290" font-family="serif" font-size="10" fill="#1a1a1a" stroke="none" font-style="italic">Σᵢ wᵢ</text>
+    <text x="300" y="520" font-family="serif" font-size="9" fill="#1a1a1a" stroke="none">E[R] - λσ²</text>
+    <text x="600" y="760" font-family="serif" font-size="10" fill="#1a1a1a" stroke="none" font-style="italic">d/dt</text>
+    <text x="130" y="710" font-family="serif" font-size="9" fill="#1a1a1a" stroke="none">ATR(14)</text>
+    <text x="720" y="80" font-family="serif" font-size="10" fill="#1a1a1a" stroke="none">n→∞</text>
+    <text x="380" y="380" font-family="serif" font-size="9" fill="#1a1a1a" stroke="none" font-style="italic">f(x) ≈ 0</text>
+
+    <!-- small circles / nodes -->
+    <circle cx="120" cy="130" r="12"/>
+    <circle cx="145" cy="130" r="12"/>
+    <line x1="132" y1="130" x2="145" y2="130"/>
+    <circle cx="530" cy="85" r="8"/>
+    <circle cx="560" cy="75" r="8"/>
+    <circle cx="545" cy="110" r="8"/>
+    <line x1="530" y1="85" x2="560" y2="75"/>
+    <line x1="530" y1="85" x2="545" y2="110"/>
+    <line x1="560" y1="75" x2="545" y2="110"/>
+
+    <!-- wavy lines / sketchy underlines -->
+    <path d="M40,95 Q55,88 70,95 Q85,102 100,95"/>
+    <path d="M615,160 Q640,154 665,160"/>
+    <path d="M245,215 Q270,208 295,215 Q320,222 345,215"/>
+    <path d="M470,500 Q500,494 530,500"/>
+
+    <!-- arrows -->
+    <line x1="200" y1="140" x2="260" y2="140"/>
+    <polyline points="252,135 260,140 252,145"/>
+    <line x1="660" y1="360" x2="710" y2="340"/>
+    <polyline points="703,335 710,340 703,345"/>
+
+    <!-- boxes / rectangles (like UI wireframes) -->
+    <rect x="380" y="130" width="45" height="25" rx="3"/>
+    <rect x="435" y="130" width="45" height="25" rx="3"/>
+    <line x1="425" y1="142" x2="435" y2="142"/>
+
+    <rect x="70" y="440" width="60" height="20" rx="2"/>
+    <rect x="70" y="468" width="60" height="20" rx="2"/>
+    <line x1="100" y1="460" x2="100" y2="468"/>
+
+    <!-- small chart sketch -->
+    <polyline points="600,520 615,510 625,530 640,500 660,515 680,490"/>
+    <line x1="595" y1="535" x2="685" y2="535"/>
+    <line x1="595" y1="485" x2="595" y2="535"/>
+
+    <!-- another small chart -->
+    <polyline points="180,660 195,640 210,655 230,620 250,635"/>
+    <line x1="175" y1="665" x2="255" y2="665"/>
+    <line x1="175" y1="615" x2="175" y2="665"/>
+
+    <!-- cross / plus marks -->
+    <line x1="310" y1="440" x2="320" y2="440"/>
+    <line x1="315" y1="435" x2="315" y2="445"/>
+    <line x1="720" y1="460" x2="730" y2="460"/>
+    <line x1="725" y1="455" x2="725" y2="465"/>
+
+    <!-- brackets -->
+    <path d="M460,370 Q455,380 460,390" fill="none"/>
+    <path d="M500,370 Q505,380 500,390" fill="none"/>
+
+    <!-- diagonal lines / hatching -->
+    <line x1="50" y1="340" x2="70" y2="320"/>
+    <line x1="55" y1="340" x2="75" y2="320"/>
+    <line x1="60" y1="340" x2="80" y2="320"/>
+
+    <!-- dots pattern -->
+    <circle cx="350" cy="620" r="1.5" fill="#1a1a1a" stroke="none"/>
+    <circle cx="362" cy="620" r="1.5" fill="#1a1a1a" stroke="none"/>
+    <circle cx="374" cy="620" r="1.5" fill="#1a1a1a" stroke="none"/>
+    <circle cx="350" cy="632" r="1.5" fill="#1a1a1a" stroke="none"/>
+    <circle cx="362" cy="632" r="1.5" fill="#1a1a1a" stroke="none"/>
+    <circle cx="374" cy="632" r="1.5" fill="#1a1a1a" stroke="none"/>
+
+    <!-- neural network sketch -->
+    <circle cx="650" cy="230" r="6"/>
+    <circle cx="650" cy="255" r="6"/>
+    <circle cx="690" cy="242" r="6"/>
+    <line x1="656" y1="230" x2="684" y2="242"/>
+    <line x1="656" y1="255" x2="684" y2="242"/>
+
+    <!-- curly brace fragment -->
+    <path d="M180,480 Q175,490 180,500 Q185,510 180,520"/>
+
+    <!-- sine wave -->
+    <path d="M420,600 Q440,580 460,600 Q480,620 500,600 Q520,580 540,600"/>
+
+    <!-- sigma notation -->
+    <text x="740" y="730" font-family="serif" font-size="14" fill="#1a1a1a" stroke="none">Σ</text>
+    <line x1="738" y1="735" x2="758" y2="735"/>
+    <line x1="738" y1="715" x2="758" y2="715"/>
+  </g>
+</svg>

@@ -1,0 +1,1686 @@
+window.LIVE_DATA = {
+  "generated_at": "2026-03-10T18:40:22.470887+00:00",
+  "portfolio_value": 100907.49,
+  "starting_capital": 100000.0,
+  "open_positions": {
+    "NVDA": {
+      "direction": "long",
+      "entry_price": 185.05,
+      "quantity": 38,
+      "market_value": 7031.900000000001,
+      "stop_loss": 171.51,
+      "take_profit": 211.84
+    },
+    "META": {
+      "direction": "long",
+      "entry_price": 634.3,
+      "quantity": 9,
+      "market_value": 5708.7,
+      "stop_loss": 632.13,
+      "take_profit": 638.13
+    },
+    "PLTR": {
+      "direction": "long",
+      "entry_price": 153.54,
+      "quantity": 35,
+      "market_value": 5373.9,
+      "stop_loss": 151.48,
+      "take_profit": 157.48
+    },
+    "HOOD": {
+      "direction": "long",
+      "entry_price": 76.92,
+      "quantity": 77,
+      "market_value": 5922.84,
+      "stop_loss": 74.79,
+      "take_profit": 80.79
+    },
+    "MSFT": {
+      "direction": "long",
+      "entry_price": 404.7,
+      "quantity": 16,
+      "market_value": 6475.2,
+      "stop_loss": 402.59,
+      "take_profit": 408.59
+    }
+  },
+  "live_positions": [
+    {
+      "ticker": "HOOD",
+      "qty": 154,
+      "side": "long",
+      "entry_price": 77.31,
+      "current_price": 79.14,
+      "market_value": 12187.56,
+      "unrealized_pl": 281.82,
+      "unrealized_pct": 2.367,
+      "change_today": -0.265
+    },
+    {
+      "ticker": "NVDA",
+      "qty": 38,
+      "side": "long",
+      "entry_price": 185.05,
+      "current_price": 184.63,
+      "market_value": 7015.94,
+      "unrealized_pl": -15.96,
+      "unrealized_pct": -0.22699999999999998,
+      "change_today": 1.084
+    },
+    {
+      "ticker": "TSLA",
+      "qty": -7,
+      "side": "short",
+      "entry_price": 401.371429,
+      "current_price": 400.0371,
+      "market_value": -2800.2597,
+      "unrealized_pl": 9.340303,
+      "unrealized_pct": 0.332,
+      "change_today": 0.33999999999999997
+    }
+  ],
+  "trades_today": 12,
+  "trade_log": [
+    {
+      "ticker": "NVDA",
+      "direction": "buy",
+      "entry_price": 180.23,
+      "limit_price": 180.37,
+      "quantity": 33,
+      "stop_loss": 178.12,
+      "take_profit": 184.12,
+      "timestamp": "2026-03-09T16:56:16.126594+00:00",
+      "alpaca_order_id": "2abcb3a0-7e35-4686-a3c2-177ae48a8dd4",
+      "model_signals": {
+        "grok": {
+          "direction": "long",
+          "confidence": 8,
+          "momentum_state": "accelerating",
+          "narrative": "Social sentiment for NVDA is strongly positive, driven by excitement around AI chip demand and recent earnings optimism. Discussions highlight NVIDIA's leadership in GPU technology and potential for further growth. Mentions of upcoming product launches are fueling bullish momentum.",
+          "unusual_activity": true
+        },
+        "perplexity": {
+          "material_news": true,
+          "news_direction": "bullish",
+          "news_summary": "NVIDIA announced Q3 fiscal 2026 financial results with $57B revenue (22% QoQ growth), strong partnerships (OpenAI 10GW deployment, Anthropic 1GW, Intel collaboration, supercomputers), product launches (BlueField-4, Omniverse DSX), and AI infrastructure expansions. Analysts raised price targets (JPMorgan to $265, others to $300). Reports of reallocating H200 production to Vera Rubin platform due to China issues, but roadmap intact (Rubin 2026). Recent Jensen Huang comments highlight OpenAI $30B deal and growth vectors.",
+          "grok_signal_verified": true,
+          "trading_halt_risk": false,
+          "sources": [
+            "https://nvidianews.nvidia.com/news/nvidia-announces-financial-results-for-third-quarter-fiscal-2026",
+            "https://www.youtube.com/watch?v=50Hsh-OeJ94",
+            "https://www.youtube.com/watch?v=Ag7JfvPoCGU",
+            "https://www.thestreet.com/investing/jpmorgan-revamps-nvidia-stock-price-target-for-rest-of-2026",
+            "https://www.barchart.com/story/news/512465/nvidia-stock-forecast-could-nvda-stock-rise-to-300-in-2026"
+          ]
+        },
+        "claude": {
+          "fundamental_view": "bullish",
+          "confidence": 7,
+          "position_size_multiplier": 1.2,
+          "key_risks": [
+            "China export restrictions limiting TAM growth",
+            "Hyperscaler capex moderation concerns",
+            "Increasing competition from AMD MI400 series and custom ASICs",
+            "Elevated valuation multiples vulnerable to guidance misses"
+          ],
+          "hold_duration": "swing",
+          "reasoning": "NVDA remains the dominant AI infrastructure provider with data center revenue continuing to show strong growth driven by Blackwell architecture adoption. Gross margins remain healthy above 70% and the balance sheet carries substantial net cash, though growth rates are normalizing from peak levels. The competitive moat in CUDA ecosystem and full-stack AI solutions supports premium valuation, but position sizing reflects uncertainty around export controls and customer diversification trends."
+        },
+        "gemini": {
+          "regime": "risk_on",
+          "regime_confidence": 8,
+          "recommended_max_exposure": 0.9,
+          "sectors_to_avoid": [
+            "Utilities",
+            "Consumer Staples"
+          ],
+          "position_size_scalar": 1.0,
+          "macro_veto": false
+        },
+        "gpt4o": {
+          "order_type": "limit",
+          "direction": "buy",
+          "limit_price": 180.37,
+          "quantity": 33,
+          "stop_loss": 178.12,
+          "take_profit": 184.12,
+          "time_in_force": "day",
+          "reasoning": "The limit price is set to ensure a fill with a calculated risk/reward ratio."
+        }
+      },
+      "pnl": 99.33,
+      "status": "closed",
+      "exit_price": 183.24,
+      "exit_reason": "take_profit",
+      "exit_timestamp": "2026-03-10T11:39:39+00:00"
+    },
+    {
+      "ticker": "META",
+      "direction": "buy",
+      "entry_price": 636.42,
+      "limit_price": 636.47,
+      "quantity": 9,
+      "stop_loss": 634.22,
+      "take_profit": 640.22,
+      "timestamp": "2026-03-09T16:57:43.825295+00:00",
+      "alpaca_order_id": "8eb79f5e-2729-465d-bec2-dc0e66170192",
+      "model_signals": {
+        "grok": {
+          "direction": "long",
+          "confidence": 7,
+          "momentum_state": "stable",
+          "narrative": "Social sentiment for META is largely positive, driven by enthusiasm around recent VR/AR product updates and strong quarterly earnings. Users on X/Twitter are highlighting growth potential in AI integration. Some concerns about privacy issues persist but are currently overshadowed by bullish narratives.",
+          "unusual_activity": false
+        },
+        "perplexity": {
+          "material_news": false,
+          "news_direction": "neutral",
+          "news_summary": "No material news found. Recent SEC filings (within last 24 hours) include routine Form 144 notices and insider sales by Javier Olivan (e.g., 1,555 shares on 02/23/2026) and RSU lapses, all from late February 2026, outside the last 24 hours. No earnings announcements, analyst actions, VR/AR updates, or other corporate events reported.[1][2][3][4]",
+          "grok_signal_verified": true,
+          "trading_halt_risk": false,
+          "sources": [
+            "https://www.stocktitan.net/sec-filings/META/",
+            "https://www.nasdaq.com/market-activity/stocks/meta/sec-filings",
+            "https://www.marketbeat.com/stocks/NASDAQ/META/sec-filings/",
+            "https://www.marketbeat.com/instant-alerts/filing-meta-platforms-inc-meta-is-rollins-financial-advisors-llcs-8th-largest-position-2026-03-03/"
+          ]
+        },
+        "claude": {
+          "fundamental_view": "bullish",
+          "confidence": 7,
+          "position_size_multiplier": 1.2,
+          "key_risks": [
+            "Reality Labs continues burning $15B+ annually with uncertain metaverse ROI timeline",
+            "Regulatory headwinds in EU and potential US antitrust action on Instagram/WhatsApp",
+            "AI infrastructure capex of $35-40B may pressure margins if monetization lags"
+          ],
+          "hold_duration": "swing",
+          "reasoning": "META has demonstrated strong revenue acceleration driven by AI-powered ad targeting improvements and Reels monetization catching up to feed. The company's disciplined 'Year of Efficiency' cost structure has sustained operating margins above 35% while funding aggressive AI investment. Balance sheet remains fortress-quality with ~$60B net cash, providing downside protection and optionality for strategic M&A or buybacks."
+        },
+        "gemini": {
+          "regime": "risk_on",
+          "regime_confidence": 8,
+          "recommended_max_exposure": 0.9,
+          "sectors_to_avoid": [
+            "Utilities",
+            "Consumer Staples"
+          ],
+          "position_size_scalar": 1.0,
+          "macro_veto": false
+        },
+        "gpt4o": {
+          "order_type": "limit",
+          "direction": "buy",
+          "limit_price": 636.47,
+          "quantity": 9,
+          "stop_loss": 634.22,
+          "take_profit": 640.22,
+          "time_in_force": "day",
+          "reasoning": "The limit price is set slightly above the current price to ensure execution, with a favorable risk/reward ratio."
+        }
+      },
+      "pnl": -20.88,
+      "status": "closed",
+      "exit_price": 634.1,
+      "exit_reason": "stop_loss",
+      "exit_timestamp": "2026-03-09T16:06:44+00:00"
+    },
+    {
+      "ticker": "PLTR",
+      "direction": "buy",
+      "entry_price": 154.7326,
+      "limit_price": 154.94,
+      "quantity": 35,
+      "stop_loss": 152.69,
+      "take_profit": 158.69,
+      "timestamp": "2026-03-09T16:58:57.038277+00:00",
+      "alpaca_order_id": "c5a9b50b-cd7f-4cbb-a97f-07fff36a3358",
+      "model_signals": {
+        "grok": {
+          "direction": "long",
+          "confidence": 7,
+          "momentum_state": "accelerating",
+          "narrative": "Social sentiment for PLTR is bullish, driven by recent discussions around strong quarterly earnings and growing government contracts. Positive mentions of AI integration and data analytics capabilities are fueling optimism. Community engagement on X/Twitter shows increasing excitement and speculative interest.",
+          "unusual_activity": true
+        },
+        "perplexity": {
+          "material_news": true,
+          "news_direction": "bullish",
+          "news_summary": "Palantir reported record Q4 2025 revenue of $1.41 billion, up 70% Y/Y, with U.S. commercial revenue growth of 137% Y/Y. Raised FY 2026 revenue guidance to $7.18-7.20 billion (61% Y/Y growth). Recent partnerships include Lumen (~$200M deal) and Rackspace. Mixed analyst actions: William Blair upgrade to Outperform, Phillip Securities Buy/$208 target; RBC Underperform reiterated.",
+          "grok_signal_verified": true,
+          "trading_halt_risk": false,
+          "sources": [
+            "https://www.investing.com/news/company-news/palantir-reports-record-q4-with-70-revenue-growth-raises-2026-outlook-93CH-4480000",
+            "https://www.marketbeat.com/stocks/NASDAQ/PLTR/news/",
+            "https://investors.palantir.com/news-details/2026/Palantir-Reports-Q4-2025-U-S--Comm-Revenue-Growth-of-137-YY-and-Revenue-Growth-of-70-YY-Issues-FY-2026-Revenue-Guidance-of-61-YY-and-U-S--Comm-Revenue-Guidance-of-115-YY-Crushing-Consensus-Expectations/",
+            "https://www.palantir.com/newsroom/press-releases/"
+          ]
+        },
+        "claude": {
+          "fundamental_view": "bullish",
+          "confidence": 7,
+          "position_size_multiplier": 1.1,
+          "key_risks": [
+            "Elevated valuation at 25x+ forward revenue creates significant downside risk on any guidance miss",
+            "Heavy reliance on U.S. government contracts exposes revenue to federal budget uncertainty and spending cuts",
+            "Increasing competition from hyperscalers and enterprise AI platforms could pressure commercial growth"
+          ],
+          "hold_duration": "swing",
+          "reasoning": "Palantir has demonstrated accelerating commercial revenue growth driven by its AIP platform adoption, with strong net dollar retention and expanding margins. The company maintains a fortress balance sheet with significant cash and zero debt, providing operational flexibility. However, the premium valuation requires continued execution on AI-driven enterprise expansion to justify current multiples."
+        },
+        "gemini": {
+          "regime": "risk_on",
+          "regime_confidence": 8,
+          "recommended_max_exposure": 0.9,
+          "sectors_to_avoid": [
+            "Utilities",
+            "Consumer Staples"
+          ],
+          "position_size_scalar": 1.0,
+          "macro_veto": false
+        },
+        "gpt4o": {
+          "order_type": "limit",
+          "direction": "buy",
+          "limit_price": 154.94,
+          "quantity": 35,
+          "stop_loss": 152.69,
+          "take_profit": 158.69,
+          "time_in_force": "day",
+          "reasoning": "The limit price is set to ensure a fill with a calculated risk/reward ratio."
+        }
+      },
+      "pnl": 96.96,
+      "status": "closed",
+      "exit_price": 157.503,
+      "exit_reason": "take_profit",
+      "exit_timestamp": "2026-03-09T17:33:08+00:00"
+    },
+    {
+      "ticker": "HOOD",
+      "direction": "buy",
+      "entry_price": 77.7,
+      "limit_price": 77.89,
+      "quantity": 77,
+      "stop_loss": 75.64,
+      "take_profit": 81.64,
+      "timestamp": "2026-03-09T17:00:10.088251+00:00",
+      "alpaca_order_id": "88f897e1-e898-4705-b551-aa910e27202b",
+      "model_signals": {
+        "grok": {
+          "direction": "long",
+          "confidence": 7,
+          "momentum_state": "accelerating",
+          "narrative": "Social sentiment for HOOD is bullish, driven by positive user feedback on recent platform updates and increased retail investor engagement. Discussions around Robinhood's role in democratizing finance continue to fuel optimism on X/Twitter. Mentions of potential feature expansions are also contributing to the positive buzz.",
+          "unusual_activity": true
+        },
+        "perplexity": {
+          "material_news": false,
+          "news_direction": "none",
+          "news_summary": "No material news, SEC filings, earnings announcements, analyst actions, or corporate events for HOOD in the last 24 hours (since March 8, 2026, 4 PM UTC). Recent items from March 4-8 include stock price movements, options trading start on March 8, and older operating data.",
+          "grok_signal_verified": true,
+          "trading_halt_risk": false,
+          "sources": []
+        },
+        "claude": {
+          "fundamental_view": "bullish",
+          "confidence": 7,
+          "position_size_multiplier": 1.2,
+          "key_risks": [
+            "Regulatory risk from SEC/FINRA scrutiny on payment for order flow",
+            "Revenue concentration in transaction-based income tied to retail trading volumes and crypto volatility",
+            "Competitive pressure from traditional brokers expanding zero-commission offerings"
+          ],
+          "hold_duration": "swing",
+          "reasoning": "Robinhood has demonstrated strong revenue growth trajectory with expanding product suite including retirement accounts, credit cards, and Gold subscription tiers driving recurring revenue diversification. The company achieved GAAP profitability in recent quarters with improving operating leverage and maintains a fortress balance sheet with substantial cash reserves and no debt. Valuation remains attractive relative to growth rate as retail engagement in equities and crypto remains elevated heading into 2026."
+        },
+        "gemini": {
+          "regime": "risk_on",
+          "regime_confidence": 8,
+          "recommended_max_exposure": 0.9,
+          "sectors_to_avoid": [
+            "Utilities",
+            "Consumer Staples"
+          ],
+          "position_size_scalar": 1.0,
+          "macro_veto": false
+        },
+        "gpt4o": {
+          "order_type": "limit",
+          "direction": "buy",
+          "limit_price": 77.89,
+          "quantity": 77,
+          "stop_loss": 75.64,
+          "take_profit": 81.64,
+          "time_in_force": "day",
+          "reasoning": "The limit price is set to ensure an aggressive entry, with a stop loss and take profit based on ATR to manage risk and reward."
+        }
+      },
+      "status": "open"
+    },
+    {
+      "ticker": "NVDA",
+      "direction": "buy",
+      "entry_price": 179.4406,
+      "limit_price": 179.53,
+      "quantity": 33,
+      "stop_loss": 177.28,
+      "take_profit": 183.28,
+      "timestamp": "2026-03-09T17:32:10.356104+00:00",
+      "alpaca_order_id": "8eef377a-03e3-4e7e-adc4-d4b9d92f4619",
+      "model_signals": {
+        "grok": {
+          "direction": "long",
+          "confidence": 8,
+          "momentum_state": "accelerating",
+          "narrative": "Social sentiment for NVDA is strongly bullish, driven by excitement over recent AI chip innovations and strong quarterly earnings. Positive mentions of partnerships and market leadership are dominating conversations on X/Twitter. Retail investor enthusiasm continues to grow.",
+          "unusual_activity": true
+        },
+        "perplexity": {
+          "material_news": true,
+          "news_direction": "bullish",
+          "news_summary": "NVIDIA announced Q3 FY2026 financial results with strong revenue growth and multiple strategic partnerships. Key developments include: (1) $30 billion investment agreement finalized with OpenAI[3]; (2) New partnerships with Anthropic (1 gigawatt capacity), Google Cloud, Microsoft, Oracle, and xAI for AI infrastructure buildout[2]; (3) Blackwell Ultra ramping quickly with Vera Rubin platform on track for 2026 launch[1][3]; (4) Multiple analyst price target increases to $265-$300 following bullish revenue guidance of $78 billion at midpoint (77% growth acceleration)[4][5]; (5) Expansion of AI infrastructure initiatives with South Korea government and industry leaders[2]; (6) Jensen Huang keynote scheduled for NVIDIA GTC March 16-19[3]. Company guidance does not assume China sales due to geopolitical uncertainty[5].",
+          "grok_signal_verified": true,
+          "trading_halt_risk": false,
+          "sources": [
+            "https://www.youtube.com/watch?v=50Hsh-OeJ94",
+            "https://nvidianews.nvidia.com/news/nvidia-announces-financial-results-for-third-quarter-fiscal-2026",
+            "https://www.youtube.com/watch?v=Ag7JfvPoCGU",
+            "https://www.thestreet.com/investing/jpmorgan-revamps-nvidia-stock-price-target-for-rest-of-2026",
+            "https://www.barchart.com/story/news/512465/nvidia-stock-forecast-could-nvda-stock-rise-to-300-in-2026"
+          ]
+        },
+        "claude": {
+          "fundamental_view": "bullish",
+          "confidence": 7,
+          "position_size_multiplier": 1.2,
+          "key_risks": [
+            "China export restrictions limiting TAM growth",
+            "Hyperscaler capex moderation concerns",
+            "Increasing competition from AMD MI400 series and custom ASICs",
+            "Elevated valuation multiples vulnerable to guidance misses"
+          ],
+          "hold_duration": "swing",
+          "reasoning": "NVDA remains the dominant AI infrastructure provider with data center revenue continuing to show strong growth driven by Blackwell architecture adoption. Gross margins remain healthy above 70% and the balance sheet carries substantial net cash, though growth rates are normalizing from peak levels. The competitive moat in CUDA ecosystem and full-stack AI solutions supports premium valuation, but position sizing reflects uncertainty around export controls and customer diversification trends."
+        },
+        "gemini": {
+          "regime": "risk_on",
+          "regime_confidence": 8,
+          "recommended_max_exposure": 0.9,
+          "sectors_to_avoid": [
+            "Utilities",
+            "Consumer Staples"
+          ],
+          "position_size_scalar": 1.0,
+          "macro_veto": false
+        },
+        "gpt4o": {
+          "order_type": "limit",
+          "direction": "buy",
+          "limit_price": 179.53,
+          "quantity": 33,
+          "stop_loss": 177.28,
+          "take_profit": 183.28,
+          "time_in_force": "day",
+          "reasoning": "The limit price is set to ensure a fill slightly above the current price, with a risk/reward ratio greater than 1.6."
+        }
+      },
+      "pnl": 125.38,
+      "status": "closed",
+      "exit_price": 183.24,
+      "exit_reason": "take_profit",
+      "exit_timestamp": "2026-03-10T11:39:39+00:00"
+    },
+    {
+      "ticker": "NVDA",
+      "direction": "buy",
+      "entry_price": 179.2742,
+      "limit_price": 179.45,
+      "quantity": 33,
+      "stop_loss": 177.2,
+      "take_profit": 183.2,
+      "timestamp": "2026-03-09T17:38:51.161091+00:00",
+      "alpaca_order_id": "80f45835-3fbf-4001-84bd-0f42edb8c52d",
+      "model_signals": {
+        "grok": {
+          "direction": "long",
+          "confidence": 8,
+          "momentum_state": "accelerating",
+          "narrative": "Social sentiment for NVDA is strongly bullish, driven by excitement over recent AI chip innovations and record-breaking quarterly earnings. Positive mentions of partnerships and future growth potential dominate discussions on X/Twitter. Investor optimism continues to build with increasing volume of supportive posts.",
+          "unusual_activity": true
+        },
+        "perplexity": {
+          "material_news": true,
+          "news_direction": "bullish",
+          "news_summary": "NVIDIA announced Q3 fiscal 2026 financial results with revenue of $57B (22% QoQ growth), 73.4% gross margin, multiple AI partnerships (OpenAI 10GW, Anthropic 1GW, Google Cloud, Microsoft, Oracle, xAI, Intel, Meta), new product launches (Omniverse DSX, BlueField-4), and supercomputer plans. Analysts raised price targets (JPMorgan to $265, others to $300). Q4 guidance $78B revenue (77% YoY growth).",
+          "grok_signal_verified": true,
+          "trading_halt_risk": false,
+          "sources": [
+            "https://nvidianews.nvidia.com/news/nvidia-announces-financial-results-for-third-quarter-fiscal-2026",
+            "https://www.thestreet.com/investing/jpmorgan-revamps-nvidia-stock-price-target-for-rest-of-2026",
+            "https://www.barchart.com/story/news/512465/nvidia-stock-forecast-could-nvda-stock-rise-to-300-in-2026"
+          ]
+        },
+        "claude": {
+          "fundamental_view": "bullish",
+          "confidence": 7,
+          "position_size_multiplier": 1.2,
+          "key_risks": [
+            "China export restrictions limiting TAM",
+            "Customer concentration risk with hyperscalers",
+            "Increased competition from AMD MI300X and custom ASICs",
+            "Elevated valuation multiples vulnerable to growth deceleration"
+          ],
+          "hold_duration": "swing",
+          "reasoning": "NVDA continues to dominate AI/ML training infrastructure with Blackwell architecture ramping strongly, driving triple-digit data center revenue growth. Gross margins remain robust above 70% with strong balance sheet and $25B+ cash position supporting buybacks. Near-term caution warranted given extended valuation and potential demand normalization as hyperscaler capex cycles mature."
+        },
+        "gemini": {
+          "regime": "neutral",
+          "regime_confidence": 7,
+          "recommended_max_exposure": 0.75,
+          "sectors_to_avoid": [],
+          "position_size_scalar": 1.0,
+          "macro_veto": false
+        },
+        "gpt4o": {
+          "order_type": "limit",
+          "direction": "buy",
+          "limit_price": 179.45,
+          "quantity": 33,
+          "stop_loss": 177.2,
+          "take_profit": 183.2,
+          "time_in_force": "day",
+          "reasoning": "The limit price is set to ensure a fill slightly above the current price, with a stop loss and take profit based on ATR for risk management."
+        }
+      },
+      "pnl": 130.87,
+      "status": "closed",
+      "exit_price": 183.24,
+      "exit_reason": "take_profit",
+      "exit_timestamp": "2026-03-10T11:39:39+00:00"
+    },
+    {
+      "ticker": "META",
+      "direction": "buy",
+      "entry_price": 634.3,
+      "limit_price": 634.38,
+      "quantity": 9,
+      "stop_loss": 632.13,
+      "take_profit": 638.13,
+      "timestamp": "2026-03-09T17:40:21.986325+00:00",
+      "alpaca_order_id": "21e131a3-1ab7-4354-946b-7872f2429913",
+      "model_signals": {
+        "grok": {
+          "direction": "long",
+          "confidence": 7,
+          "momentum_state": "accelerating",
+          "narrative": "Social sentiment for META is currently bullish, driven by positive reactions to recent earnings reports and optimism around AI integration in their platforms. User engagement on X/Twitter shows growing excitement about future growth potential.",
+          "unusual_activity": false
+        },
+        "perplexity": {
+          "material_news": false,
+          "news_direction": "none",
+          "news_summary": "No material news, SEC filings, earnings announcements, analyst actions, or corporate events for META in the last 24 hours. Recent filings include RSU lapses and insider sales by Javier Olivan on 02/23/2026 and Form 144 on 02/25/2026, both outside the 24-hour window.[1][2][3]",
+          "grok_signal_verified": true,
+          "trading_halt_risk": false,
+          "sources": [
+            "https://www.stocktitan.net/sec-filings/META/",
+            "https://www.nasdaq.com/market-activity/stocks/meta/sec-filings",
+            "https://www.marketbeat.com/instant-alerts/filing-meta-platforms-inc-meta-is-rollins-financial-advisors-llcs-8th-largest-position-2026-03-03/"
+          ]
+        },
+        "claude": {
+          "fundamental_view": "bullish",
+          "confidence": 7,
+          "position_size_multiplier": 1.2,
+          "key_risks": [
+            "Reality Labs continues to burn significant cash with uncertain path to profitability",
+            "Regulatory headwinds in EU and potential US antitrust actions",
+            "AI infrastructure capex guidance elevated, compressing near-term margins"
+          ],
+          "hold_duration": "swing",
+          "reasoning": "META has demonstrated strong revenue growth driven by AI-enhanced ad targeting improvements and Reels monetization catching up to feed. The core Family of Apps business maintains robust operating margins above 40% with continued user engagement growth. Balance sheet remains fortress-quality with substantial net cash position, supporting aggressive AI investment and shareholder returns through buybacks."
+        },
+        "gemini": {
+          "regime": "neutral",
+          "regime_confidence": 7,
+          "recommended_max_exposure": 0.75,
+          "sectors_to_avoid": [],
+          "position_size_scalar": 1.0,
+          "macro_veto": false
+        },
+        "gpt4o": {
+          "order_type": "limit",
+          "direction": "buy",
+          "limit_price": 634.38,
+          "quantity": 9,
+          "stop_loss": 632.13,
+          "take_profit": 638.13,
+          "time_in_force": "day",
+          "reasoning": "The limit price is set to ensure a fill with a calculated risk/reward ratio."
+        }
+      },
+      "pnl": -1.8,
+      "status": "closed",
+      "exit_price": 634.1,
+      "exit_reason": "stop_loss",
+      "exit_timestamp": "2026-03-09T16:06:44+00:00"
+    },
+    {
+      "ticker": "PLTR",
+      "direction": "buy",
+      "entry_price": 153.54,
+      "limit_price": 153.73,
+      "quantity": 35,
+      "stop_loss": 151.48,
+      "take_profit": 157.48,
+      "timestamp": "2026-03-09T17:41:36.088606+00:00",
+      "alpaca_order_id": "3ef8f6b5-2007-4890-89a8-4a2b720448c4",
+      "model_signals": {
+        "grok": {
+          "direction": "long",
+          "confidence": 7,
+          "momentum_state": "accelerating",
+          "narrative": "Social sentiment for PLTR is bullish, driven by recent excitement over government contracts and AI-related partnerships. Positive mentions of growth potential and innovation are dominating discussions on X/Twitter. Retail investor enthusiasm appears to be gaining traction.",
+          "unusual_activity": true
+        },
+        "perplexity": {
+          "material_news": true,
+          "news_direction": "bullish",
+          "news_summary": "Palantir reported record Q4 2025 revenue of $1.41 billion, up 70% YoY, with U.S. commercial revenue growth of 137% YoY. Raised FY 2026 revenue guidance to $7.18-7.20 billion (61% YoY growth). Analyst actions include William Blair upgrade to Outperform and Phillip Securities Buy initiation with $208 target. Recent partnerships noted, such as with Innodata and Rackspace (press releases dated Feb 17-18, 2026).",
+          "grok_signal_verified": true,
+          "trading_halt_risk": false,
+          "sources": [
+            "https://www.investing.com/news/company-news/palantir-reports-record-q4-with-70-revenue-growth-raises-2026-outlook-93CH-4480000",
+            "https://investors.palantir.com/news-details/2026/Palantir-Reports-Q4-2025-U-S--Comm-Revenue-Growth-of-137-YY-and-Revenue-Growth-of-70-YY-Issues-FY-2026-Revenue-Guidance-of-61-YY-and-U-S--Comm-Revenue-Guidance-of-115-YY-Crushing-Consensus-Expectations/",
+            "https://www.palantir.com/newsroom/press-releases/"
+          ]
+        },
+        "claude": {
+          "fundamental_view": "bullish",
+          "confidence": 7,
+          "position_size_multiplier": 1.1,
+          "key_risks": [
+            "Elevated valuation with P/S ratio significantly above software peers",
+            "Heavy reliance on US government contracts creates concentration risk",
+            "Insider selling pressure from stock-based compensation dilution"
+          ],
+          "hold_duration": "swing",
+          "reasoning": "Palantir has demonstrated accelerating revenue growth driven by AIP platform adoption and expanding commercial customer base, with Q4 2025 likely showing continued momentum in US commercial segment. Strong balance sheet with no debt and significant cash position provides flexibility. However, premium valuation requires continued execution on AI-driven growth narrative, warranting moderate rather than maximum conviction sizing."
+        },
+        "gemini": {
+          "regime": "neutral",
+          "regime_confidence": 7,
+          "recommended_max_exposure": 0.75,
+          "sectors_to_avoid": [],
+          "position_size_scalar": 1.0,
+          "macro_veto": false
+        },
+        "gpt4o": {
+          "order_type": "limit",
+          "direction": "buy",
+          "limit_price": 153.73,
+          "quantity": 35,
+          "stop_loss": 151.48,
+          "take_profit": 157.48,
+          "time_in_force": "day",
+          "reasoning": "The limit price is set to ensure a fill while maintaining a favorable risk/reward ratio."
+        }
+      },
+      "pnl": 138.7,
+      "status": "closed",
+      "exit_price": 157.503,
+      "exit_reason": "take_profit",
+      "exit_timestamp": "2026-03-09T17:35:15+00:00"
+    },
+    {
+      "ticker": "HOOD",
+      "direction": "buy",
+      "entry_price": 76.92,
+      "limit_price": 77.04,
+      "quantity": 77,
+      "stop_loss": 74.79,
+      "take_profit": 80.79,
+      "timestamp": "2026-03-09T17:42:47.574889+00:00",
+      "alpaca_order_id": "43e0a5a3-7260-4191-b89a-5a4d27bb11e2",
+      "model_signals": {
+        "grok": {
+          "direction": "long",
+          "confidence": 7,
+          "momentum_state": "accelerating",
+          "narrative": "Social sentiment for HOOD is bullish, driven by positive reactions to recent product updates and increased retail investor engagement. Discussions on X highlight optimism about user growth and platform improvements. Mentions of potential partnerships are also fueling positive buzz.",
+          "unusual_activity": true
+        },
+        "perplexity": {
+          "material_news": false,
+          "news_direction": "none",
+          "news_summary": "No material news, SEC filings, earnings announcements, analyst actions, or corporate events for HOOD in the last 24 hours (since March 8, 2026, 5:41 PM UTC). Recent items include stock price movement on March 4 (up 8.1%) and platform assets data for January 2026, both outside the timeframe.",
+          "grok_signal_verified": true,
+          "trading_halt_risk": false,
+          "sources": []
+        },
+        "claude": {
+          "fundamental_view": "bullish",
+          "confidence": 7,
+          "position_size_multiplier": 1.2,
+          "key_risks": [
+            "Regulatory scrutiny on payment for order flow and crypto trading",
+            "Revenue concentration in transaction-based income tied to retail trading activity",
+            "Competitive pressure from traditional brokerages expanding zero-commission offerings"
+          ],
+          "hold_duration": "swing",
+          "reasoning": "Robinhood has demonstrated strong revenue diversification with growth in net interest income, Gold subscriptions, and crypto trading following 2024-2025 expansion initiatives. The company achieved GAAP profitability and maintains a clean balance sheet with substantial cash reserves. Continued user growth and ARPU expansion support a constructive outlook, though valuation has re-rated higher requiring disciplined entry points."
+        },
+        "gemini": {
+          "regime": "neutral",
+          "regime_confidence": 7,
+          "recommended_max_exposure": 0.75,
+          "sectors_to_avoid": [],
+          "position_size_scalar": 1.0,
+          "macro_veto": false
+        },
+        "gpt4o": {
+          "order_type": "limit",
+          "direction": "buy",
+          "limit_price": 77.04,
+          "quantity": 77,
+          "stop_loss": 74.79,
+          "take_profit": 80.79,
+          "time_in_force": "day",
+          "reasoning": "The limit price is set to ensure a fill with a calculated risk/reward ratio."
+        }
+      },
+      "status": "open"
+    },
+    {
+      "ticker": "MSFT",
+      "direction": "buy",
+      "entry_price": 404.7,
+      "limit_price": 404.84,
+      "quantity": 16,
+      "stop_loss": 402.59,
+      "take_profit": 408.59,
+      "timestamp": "2026-03-09T17:44:13.122490+00:00",
+      "alpaca_order_id": "f7701f36-a656-43f7-bb64-69c6c39cb8a9",
+      "model_signals": {
+        "grok": {
+          "direction": "long",
+          "confidence": 8,
+          "momentum_state": "accelerating",
+          "narrative": "Social sentiment for MSFT is strongly positive, driven by excitement over recent AI product announcements and strong quarterly earnings. Discussions on X highlight optimism about cloud computing growth and partnerships. Positive mentions are trending upward rapidly.",
+          "unusual_activity": true
+        },
+        "perplexity": {
+          "material_news": false,
+          "news_direction": "none",
+          "news_summary": "No material news, SEC filings, earnings announcements, analyst actions, or corporate events for MSFT in the last 24 hours. Recent coverage references older events like Q1 FY2026 earnings (October 2025) and Q2 (January 28, 2026), with stock up 1.5% on March 2, 2026, but nothing within the past day.",
+          "grok_signal_verified": false,
+          "trading_halt_risk": false,
+          "sources": []
+        },
+        "claude": {
+          "fundamental_view": "bullish",
+          "confidence": 8,
+          "position_size_multiplier": 1.3,
+          "key_risks": [
+            "Azure growth deceleration amid increased cloud competition",
+            "AI infrastructure capex weighing on near-term margins",
+            "Regulatory scrutiny on AI partnerships and market dominance"
+          ],
+          "hold_duration": "swing",
+          "reasoning": "Microsoft continues to demonstrate strong revenue growth driven by Azure cloud services and AI integration across its product suite, with Copilot monetization accelerating. The company maintains fortress balance sheet quality with substantial cash reserves and consistent free cash flow generation. Valuation remains elevated but justified by durable competitive moats in enterprise software and leading position in generative AI commercialization."
+        },
+        "gemini": {
+          "regime": "neutral",
+          "regime_confidence": 7,
+          "recommended_max_exposure": 0.75,
+          "sectors_to_avoid": [],
+          "position_size_scalar": 1.0,
+          "macro_veto": false
+        },
+        "gpt4o": {
+          "order_type": "limit",
+          "direction": "buy",
+          "limit_price": 404.84,
+          "quantity": 16,
+          "stop_loss": 402.59,
+          "take_profit": 408.59,
+          "time_in_force": "day",
+          "reasoning": "The limit order is set slightly above the current price to ensure execution, with a risk/reward ratio greater than 1.6."
+        }
+      },
+      "pnl": 62.4,
+      "status": "closed",
+      "exit_price": 408.6,
+      "exit_reason": "take_profit",
+      "exit_timestamp": "2026-03-09T17:33:54+00:00"
+    },
+    {
+      "ticker": "TSLA",
+      "direction": "sell_short",
+      "order_type": "market",
+      "entry_price": 401.3714,
+      "limit_price": null,
+      "quantity": 7,
+      "stop_loss": 430.43,
+      "take_profit": 355.5,
+      "timestamp": "2026-03-10T18:09:58.359638+00:00",
+      "alpaca_order_id": "ca90ad43-bcde-4985-813d-343dff848638",
+      "bracket_sl_order_id": "d02abbb4-82c8-45f8-8614-1db278f91921",
+      "bracket_tp_order_id": "ee1b0a78-baf3-45b4-b570-20d2d921e11b",
+      "model_signals": {
+        "grok": {
+          "direction": "short",
+          "confidence": 7,
+          "momentum_state": "decelerating",
+          "narrative": "Multiple posts discuss Tesla facing chip shortage issues from potential Chinese export controls on supplier Nexperia, as reported by Barron's. Others highlight the exit of Tesla's Finance VP and bearish analyst calls from JPMorgan (Sell) and Morgan Stanley (downgrade) due to high PE ratio, lack of earnings growth, and overvaluation. Additional mentions of ongoing weakness targeting supports at $350-$388 and institutional sales signals.",
+          "unusual_activity": false
+        },
+        "perplexity": {
+          "material_news": true,
+          "news_direction": "bearish",
+          "news_summary": "Tesla faces a critical NHTSA FSD filing deadline on March 9, 2026, with risks to Robotaxi rollout if failures persist; Fremont factory shift to Optimus robots signals EV pivot amid BYD surpassing Tesla in sales; stock at 14-week low ~$396-398, down 12% YTD; technicals highlight downside risks below $390 to $350s supports; prior Bank of America buy reiterated but concerns over high valuation and FSD issues linger.",
+          "grok_signal_verified": false,
+          "trading_halt_risk": false,
+          "sources": [
+            "https://careervalore.com/blog/tesla-stock-the-make-or-break-week-of-march-9-2026/2258/09/2026/",
+            "https://www.youtube.com/watch?v=LqOH8orCcZY",
+            "https://stockinvest.us/stock-news/tesla-stock-price-ended-at-39868-on-monday-after-gaining-0492-2026-03-09",
+            "https://www.youtube.com/watch?v=bqXqVIN3QLQ"
+          ]
+        },
+        "claude": {
+          "fundamental_view": "bearish",
+          "confidence": 7,
+          "position_size_multiplier": 1.2,
+          "key_risks": [
+            "Elon Musk political backlash and brand damage from DOGE association driving consumer boycotts in key markets (Europe, California)",
+            "Accelerating margin compression from aggressive price cuts with automotive gross margins falling toward mid-single digits",
+            "Intensifying competition from BYD, legacy OEMs, and Chinese EV makers eroding market share globally",
+            "FSD/Robotaxi timelines repeatedly delayed, undermining premium valuation multiples dependent on AI/autonomy narrative",
+            "Potential short squeeze risk given elevated short interest if any positive catalyst emerges",
+            "Demand deterioration in Q1 2026 with delivery numbers likely to disappoint consensus estimates"
+          ],
+          "hold_duration": "swing",
+          "reasoning": "Tesla faces a rare convergence of fundamental deterioration and reputational damage: Q4 2025 deliveries missed expectations, automotive gross margins ex-credits have compressed significantly, and Musk's political entanglements with DOGE have sparked organized boycotts that are visibly impacting European and domestic sales in early 2026. The stock continues to trade at a significant premium to traditional auto peers (40-60x forward earnings) that is entirely dependent on unproven AI/autonomy optionality, making it vulnerable to multiple compression as execution disappointments mount. With Q1 2026 deliveries likely to print below year-ago levels amid showroom protests and registration data weakness, the near-term fundamental setup favors the short side."
+        },
+        "gemini": {
+          "regime": "risk_on",
+          "regime_confidence": 8,
+          "recommended_max_exposure": 0.85,
+          "sectors_to_avoid": [],
+          "position_size_scalar": 1.0,
+          "macro_veto": false
+        },
+        "gpt4o": {
+          "order_type": "market",
+          "direction": "sell_short",
+          "limit_price": null,
+          "quantity": 7,
+          "stop_loss": 430.43,
+          "take_profit": 355.5,
+          "time_in_force": "day",
+          "reasoning": "Stop loss and take profit are based on ATR-adjusted levels."
+        },
+        "tech_levels": {
+          "atr": 13.1461,
+          "atr_sl": 430.43,
+          "atr_tp": 355.5,
+          "adj_sl": 430.43,
+          "adj_tp": 355.5,
+          "snap_sl": "atr_default",
+          "snap_tp": "atr_default",
+          "supports": [
+            {
+              "price": 214.35,
+              "type": "swing_low",
+              "strength": 0.1966686415763697,
+              "breaches": 0
+            },
+            {
+              "price": 222.81,
+              "type": "swing_low",
+              "strength": 0.0,
+              "breaches": 1
+            },
+            {
+              "price": 243.44,
+              "type": "swing_low",
+              "strength": 0.0,
+              "breaches": 13
+            }
+          ],
+          "resistances": [
+            {
+              "price": 490.73,
+              "type": "equal_highs",
+              "strength": 0.12840909090909092,
+              "breaches": 0
+            },
+            {
+              "price": 498.8,
+              "type": "swing_high",
+              "strength": 0.04950350686024778,
+              "breaches": 0
+            },
+            {
+              "price": 407.7,
+              "type": "swing_high",
+              "strength": 0.0,
+              "breaches": 105
+            }
+          ],
+          "key_mas": {
+            "ema20": 407.87,
+            "sma50": 424.55,
+            "sma200": 392.68
+          },
+          "vwap": 407.79
+        },
+        "index_momentum_scalar": {
+          "scalar": 0.25,
+          "reason": "both_above_ema9_sharp_rally (avg=0.86%)",
+          "details": {
+            "SPY": {
+              "ema9": 680.59,
+              "current": 682.05,
+              "ema9_signal": "above",
+              "intraday_pct": 0.78
+            },
+            "QQQ": {
+              "ema9": 610.82,
+              "current": 612.13,
+              "ema9_signal": "above",
+              "intraday_pct": 0.932
+            }
+          }
+        }
+      },
+      "status": "closed",
+      "exit_price": 430.43,
+      "exit_reason": "stop_loss",
+      "pnl": -203.41
+    },
+    {
+      "ticker": "NVDA",
+      "direction": "buy",
+      "order_type": "market",
+      "entry_price": 185.05,
+      "limit_price": null,
+      "quantity": 38,
+      "stop_loss": 171.51,
+      "take_profit": 211.84,
+      "timestamp": "2026-03-10T18:35:01.423359+00:00",
+      "alpaca_order_id": "ff7489bb-bb2a-483f-bcfe-db038573483f",
+      "bracket_sl_order_id": "1a6b2b83-eb36-47a1-8c51-10ed4dc8e5b5",
+      "bracket_tp_order_id": "9c7fc080-a8e1-441b-952e-292f33ad1fb0",
+      "model_signals": {
+        "grok": {
+          "direction": "long",
+          "confidence": 7,
+          "momentum_state": "accelerating",
+          "narrative": "Recent X posts show NVDA up over 2.5% intraday with shorts squeezed and dip buyers defending $176-180 support near 200D MA, as in updates from @babiru36 and @narrgis007; buzz around Nvidia's investment in Mira Murati's Thinking Machines Lab for gigawatt-scale AI and upcoming NemoClaw open-source AI agent platform shared by @StockSavvyShay with 631 likes; while some like @DarkStoneCap warn of after-hours drop to $175 testing support, bullish setups like weekly Bollinger squeeze noted by @JC_GetRichSlow dominate.",
+          "unusual_activity": false
+        },
+        "perplexity": {
+          "material_news": false,
+          "news_direction": "none",
+          "news_summary": "No material news found",
+          "grok_signal_verified": false,
+          "trading_halt_risk": false,
+          "sources": []
+        },
+        "claude": {
+          "fundamental_view": "bullish",
+          "confidence": 8,
+          "position_size_multiplier": 1.3,
+          "key_risks": [
+            "U.S. export restrictions on advanced chips to China could materially reduce addressable market and revenue",
+            "Hyperscaler capex deceleration or AI infrastructure spending slowdown could compress forward demand",
+            "Intensifying competition from AMD MI300X/MI400, custom silicon (Google TPUs, Amazon Trainium, Microsoft Maia), and potential Chinese alternatives",
+            "Blackwell supply chain constraints and gross margin pressure during ramp could disappoint near-term"
+          ],
+          "hold_duration": "swing",
+          "reasoning": "NVIDIA continues to demonstrate exceptional revenue trajectory driven by insatiable AI/data center demand, with fiscal year 2025 revenues exceeding $130B and data center segment growing triple digits year-over-year through Hopper and early Blackwell adoption. The company maintains dominant GPU compute share (~80%+) in AI training and inference workloads, with a deeply entrenched CUDA software ecosystem creating significant switching costs that competitors have struggled to overcome. While valuation remains elevated and export control risks to China are real headwinds, NVIDIA's Blackwell architecture ramp, NIM microservices push, and expanding inference monetization provide durable multi-year growth catalysts that support a constructive long position on pullbacks."
+        },
+        "gemini": {
+          "regime": "neutral",
+          "regime_confidence": 7,
+          "recommended_max_exposure": 0.6,
+          "sectors_to_avoid": [
+            "Real Estate",
+            "Information Technology"
+          ],
+          "position_size_scalar": 0.75,
+          "macro_veto": false
+        },
+        "gpt4o": {
+          "order_type": "market",
+          "direction": "buy",
+          "limit_price": null,
+          "quantity": 38,
+          "stop_loss": 171.51,
+          "take_profit": 211.84,
+          "time_in_force": "day",
+          "reasoning": "Stop loss is based on ATR default level and take profit is set at resistance level of 212.15."
+        },
+        "tech_levels": {
+          "atr": 6.1264,
+          "atr_sl": 171.51,
+          "atr_tp": 206.43,
+          "adj_sl": 171.51,
+          "adj_tp": 211.84,
+          "snap_sl": "atr_default",
+          "snap_tp": "resistance_at_212.15",
+          "supports": [
+            {
+              "price": 86.62,
+              "type": "swing_low",
+              "strength": 0.25225225225225223,
+              "breaches": 0
+            },
+            {
+              "price": 182.82,
+              "type": "equal_highs",
+              "strength": 0.08583187594730085,
+              "breaches": 169
+            },
+            {
+              "price": 95.04,
+              "type": "swing_low",
+              "strength": 0.0,
+              "breaches": 1
+            }
+          ],
+          "resistances": [
+            {
+              "price": 212.15,
+              "type": "swing_high",
+              "strength": 0.2134673297397494,
+              "breaches": 0
+            },
+            {
+              "price": 186.42,
+              "type": "equal_lows",
+              "strength": 0.0,
+              "breaches": 87
+            },
+            {
+              "price": 189.03,
+              "type": "equal_highs",
+              "strength": 0.0,
+              "breaches": 62
+            }
+          ],
+          "key_mas": {
+            "ema20": 184.44,
+            "sma50": 185.79,
+            "sma200": 176.64
+          },
+          "vwap": 185.3
+        },
+        "index_momentum_scalar": {
+          "scalar": 1.0,
+          "reason": "full_size",
+          "details": {
+            "SPY": {
+              "ema9": 680.59,
+              "current": 682.05,
+              "ema9_signal": "above",
+              "intraday_pct": 0.78
+            },
+            "QQQ": {
+              "ema9": 610.82,
+              "current": 612.13,
+              "ema9_signal": "above",
+              "intraday_pct": 0.932
+            }
+          }
+        }
+      },
+      "exit_type": null,
+      "exit_price": null,
+      "pnl": null,
+      "status": "open"
+    }
+  ],
+  "veto_log": [
+    {
+      "ticker": "TSLA",
+      "reason": "below_confidence_floor: claude=4, floor=6",
+      "timestamp": "2026-03-09T16:56:29.501328+00:00",
+      "grok_direction": "long",
+      "grok_confidence": 8
+    },
+    {
+      "ticker": "AAPL",
+      "reason": "below_confidence_floor: claude=5, floor=6",
+      "timestamp": "2026-03-09T17:00:36.894995+00:00",
+      "grok_direction": "long",
+      "grok_confidence": 8
+    },
+    {
+      "ticker": "QQQ",
+      "reason": "below_confidence_floor: claude=5, floor=6",
+      "timestamp": "2026-03-09T17:00:48.220525+00:00",
+      "grok_direction": "long",
+      "grok_confidence": 7
+    },
+    {
+      "ticker": "SPY",
+      "reason": "below_confidence_floor: claude=5, floor=6",
+      "timestamp": "2026-03-09T17:00:58.193150+00:00",
+      "grok_direction": "long",
+      "grok_confidence": 7
+    },
+    {
+      "ticker": "TSLA",
+      "reason": "below_confidence_floor: claude=4, floor=6",
+      "timestamp": "2026-03-09T17:32:17.659745+00:00",
+      "grok_direction": "long",
+      "grok_confidence": 8
+    },
+    {
+      "ticker": "META",
+      "reason": "news_contradicts_signal (pre-gate)",
+      "timestamp": "2026-03-09T17:32:23.648815+00:00"
+    },
+    {
+      "ticker": "AAPL",
+      "reason": "below_confidence_floor: claude=5, floor=6",
+      "timestamp": "2026-03-09T17:32:37.787074+00:00",
+      "grok_direction": "long",
+      "grok_confidence": 8
+    },
+    {
+      "ticker": "QQQ",
+      "reason": "below_confidence_floor: claude=5, floor=6",
+      "timestamp": "2026-03-09T17:32:46.038785+00:00",
+      "grok_direction": "long",
+      "grok_confidence": 7
+    },
+    {
+      "ticker": "SPY",
+      "reason": "below_confidence_floor: claude=5, floor=6",
+      "timestamp": "2026-03-09T17:32:49.402852+00:00",
+      "grok_direction": "long",
+      "grok_confidence": 7
+    },
+    {
+      "ticker": "TSLA",
+      "reason": "below_confidence_floor: claude=4, floor=6",
+      "timestamp": "2026-03-09T17:39:06.815858+00:00",
+      "grok_direction": "long",
+      "grok_confidence": 8
+    },
+    {
+      "ticker": "AAPL",
+      "reason": "below_confidence_floor: claude=5, floor=6",
+      "timestamp": "2026-03-09T17:43:00.231028+00:00",
+      "grok_direction": "long",
+      "grok_confidence": 8
+    },
+    {
+      "ticker": "QQQ",
+      "reason": "below_confidence_floor: claude=5, floor=6",
+      "timestamp": "2026-03-09T17:44:47.274843+00:00",
+      "grok_direction": "long",
+      "grok_confidence": 7
+    },
+    {
+      "ticker": "SPY",
+      "reason": "below_confidence_floor: claude=5, floor=6",
+      "timestamp": "2026-03-09T17:44:55.791986+00:00",
+      "grok_direction": "long",
+      "grok_confidence": 7
+    },
+    {
+      "ticker": "TSLA",
+      "reason": "below_confidence_floor: claude=4, floor=6",
+      "timestamp": "2026-03-09T18:13:16.982959+00:00",
+      "grok_direction": "long",
+      "grok_confidence": 8
+    },
+    {
+      "ticker": "AAPL",
+      "reason": "below_confidence_floor: claude=5, floor=6",
+      "timestamp": "2026-03-09T18:14:26.104689+00:00",
+      "grok_direction": "long",
+      "grok_confidence": 8
+    },
+    {
+      "ticker": "QQQ",
+      "reason": "below_confidence_floor: claude=5, floor=6",
+      "timestamp": "2026-03-09T18:15:33.473741+00:00",
+      "grok_direction": "long",
+      "grok_confidence": 7
+    },
+    {
+      "ticker": "SPY",
+      "reason": "below_confidence_floor: claude=5, floor=6",
+      "timestamp": "2026-03-09T18:15:45.401440+00:00",
+      "grok_direction": "long",
+      "grok_confidence": 7
+    },
+    {
+      "ticker": "TSLA",
+      "reason": "index_regime_bullish (score=1.5)",
+      "timestamp": "2026-03-10T17:15:18.262035+00:00"
+    },
+    {
+      "ticker": "SPY",
+      "reason": "index_regime_bullish (score=1.5)",
+      "timestamp": "2026-03-10T17:19:13.924866+00:00"
+    },
+    {
+      "ticker": "TSLA",
+      "reason": "index_regime_bullish (score=1.5)",
+      "timestamp": "2026-03-10T17:50:59.929219+00:00"
+    },
+    {
+      "ticker": "SPY",
+      "reason": "index_regime_bullish (score=1.5)",
+      "timestamp": "2026-03-10T17:55:03.713892+00:00"
+    },
+    {
+      "ticker": "NVDA",
+      "reason": "news_contradicts_signal (pre-gate)",
+      "timestamp": "2026-03-10T17:56:38.132818+00:00"
+    },
+    {
+      "ticker": "QQQ",
+      "reason": "below_confidence_floor: claude=5, floor=6",
+      "timestamp": "2026-03-10T18:00:40.052051+00:00",
+      "grok_direction": "long",
+      "grok_confidence": 7
+    },
+    {
+      "ticker": "SPY",
+      "reason": "below_confidence_floor: claude=5, floor=6",
+      "timestamp": "2026-03-10T18:13:17.665258+00:00",
+      "grok_direction": "long",
+      "grok_confidence": 7
+    },
+    {
+      "ticker": "TSLA",
+      "reason": "SENTINEL: Index rally detected (SPY/QQQ avg intraday +0.86%) \u2014 closing short on upside momentum",
+      "timestamp": "2026-03-10T18:33:10.967196+00:00",
+      "type": "early_exit"
+    }
+  ],
+  "equity_history": [
+    {
+      "timestamp": "2026-03-09T16:45:00+00:00",
+      "portfolio_value": 0.0,
+      "spy_value": 100000.0
+    },
+    {
+      "timestamp": "2026-03-09T17:00:00+00:00",
+      "portfolio_value": -17.71,
+      "spy_value": 99919.55
+    },
+    {
+      "timestamp": "2026-03-09T17:15:00+00:00",
+      "portfolio_value": -69.87,
+      "spy_value": 99649.91
+    },
+    {
+      "timestamp": "2026-03-09T17:30:00+00:00",
+      "portfolio_value": -170.11,
+      "spy_value": 99551.58
+    },
+    {
+      "timestamp": "2026-03-09T17:45:00+00:00",
+      "portfolio_value": -180.65,
+      "spy_value": 99636.5
+    },
+    {
+      "timestamp": "2026-03-09T18:00:00+00:00",
+      "portfolio_value": -38.09,
+      "spy_value": 99740.78
+    },
+    {
+      "timestamp": "2026-03-09T18:15:00+00:00",
+      "portfolio_value": -10.2,
+      "spy_value": 99828.68
+    },
+    {
+      "timestamp": "2026-03-09T18:30:00+00:00",
+      "portfolio_value": 22.38,
+      "spy_value": 99938.92
+    },
+    {
+      "timestamp": "2026-03-09T18:45:00+00:00",
+      "portfolio_value": 143.22,
+      "spy_value": 99818.25
+    },
+    {
+      "timestamp": "2026-03-09T19:00:00+00:00",
+      "portfolio_value": -1.01,
+      "spy_value": 99873.37
+    },
+    {
+      "timestamp": "2026-03-09T19:15:00+00:00",
+      "portfolio_value": 87.78,
+      "spy_value": 100913.22
+    },
+    {
+      "timestamp": "2026-03-09T19:30:00+00:00",
+      "portfolio_value": 798.51,
+      "spy_value": 101011.55
+    },
+    {
+      "timestamp": "2026-03-09T19:45:00+00:00",
+      "portfolio_value": 798.17,
+      "spy_value": 101050.28
+    },
+    {
+      "timestamp": "2026-03-09T20:00:00+00:00",
+      "portfolio_value": 888.8,
+      "spy_value": 100978.77
+    },
+    {
+      "timestamp": "2026-03-10T13:30:00+00:00",
+      "portfolio_value": 100984.48,
+      "spy_value": 100890.88
+    },
+    {
+      "timestamp": "2026-03-10T13:45:00+00:00",
+      "portfolio_value": 100828.06,
+      "spy_value": 100698.7
+    },
+    {
+      "timestamp": "2026-03-10T14:00:00+00:00",
+      "portfolio_value": 100820.36,
+      "spy_value": 100654.0
+    },
+    {
+      "timestamp": "2026-03-10T14:15:00+00:00",
+      "portfolio_value": 100752.6,
+      "spy_value": 100936.31
+    },
+    {
+      "timestamp": "2026-03-10T14:30:00+00:00",
+      "portfolio_value": 100817.28,
+      "spy_value": 101308.01
+    },
+    {
+      "timestamp": "2026-03-10T14:45:00+00:00",
+      "portfolio_value": 100895.82,
+      "spy_value": 101468.9
+    },
+    {
+      "timestamp": "2026-03-10T15:00:00+00:00",
+      "portfolio_value": 101006.7,
+      "spy_value": 101361.64
+    },
+    {
+      "timestamp": "2026-03-10T15:15:00+00:00",
+      "portfolio_value": 100975.13,
+      "spy_value": 101464.43
+    },
+    {
+      "timestamp": "2026-03-10T15:30:00+00:00",
+      "portfolio_value": 100965.89,
+      "spy_value": 101528.49
+    },
+    {
+      "timestamp": "2026-03-10T15:45:00+00:00",
+      "portfolio_value": 100988.22,
+      "spy_value": 101510.61
+    },
+    {
+      "timestamp": "2026-03-10T16:00:00+00:00",
+      "portfolio_value": 100983.6,
+      "spy_value": 101383.24
+    },
+    {
+      "timestamp": "2026-03-10T16:15:00+00:00",
+      "portfolio_value": 100928.16,
+      "spy_value": 101392.92
+    },
+    {
+      "timestamp": "2026-03-10T16:30:00+00:00",
+      "portfolio_value": 100964.35,
+      "spy_value": 101532.96
+    },
+    {
+      "timestamp": "2026-03-10T16:45:00+00:00",
+      "portfolio_value": 101022.52,
+      "spy_value": 101522.53
+    },
+    {
+      "timestamp": "2026-03-10T17:00:00+00:00",
+      "portfolio_value": 100989.76,
+      "spy_value": 101565.74
+    },
+    {
+      "timestamp": "2026-03-10T17:15:00+00:00",
+      "portfolio_value": 100983.6,
+      "spy_value": 101785.47
+    },
+    {
+      "timestamp": "2026-03-10T17:30:00+00:00",
+      "portfolio_value": 101052.13,
+      "spy_value": 101495.72
+    },
+    {
+      "timestamp": "2026-03-10T17:45:00+00:00",
+      "portfolio_value": 100980.52,
+      "spy_value": 101608.94
+    },
+    {
+      "timestamp": "2026-03-10T18:00:00+00:00",
+      "portfolio_value": 101026.72,
+      "spy_value": 101100.93
+    },
+    {
+      "timestamp": "2026-03-10T18:15:00+00:00",
+      "portfolio_value": 100955.26,
+      "spy_value": 101202.98
+    },
+    {
+      "timestamp": "2026-03-10T18:30:00+00:00",
+      "portfolio_value": 100920.56,
+      "spy_value": 101147.11
+    }
+  ],
+  "cost_data": {
+    "total_cost_usd": 2.4092,
+    "total_calls": 127,
+    "by_model": {
+      "gemini-2.5-flash": {
+        "calls": 6,
+        "input_tokens": 1632,
+        "output_tokens": 475,
+        "cost_usd": 0.000529
+      },
+      "grok-3": {
+        "calls": 11,
+        "input_tokens": 1769,
+        "output_tokens": 982,
+        "cost_usd": 0.020037
+      },
+      "sonar": {
+        "calls": 27,
+        "input_tokens": 8394,
+        "output_tokens": 4516,
+        "cost_usd": 0.01291
+      },
+      "claude-opus-4-5": {
+        "calls": 11,
+        "input_tokens": 2802,
+        "output_tokens": 2167,
+        "cost_usd": 0.204555
+      },
+      "gpt-4o": {
+        "calls": 9,
+        "input_tokens": 3010,
+        "output_tokens": 837,
+        "cost_usd": 0.015897
+      },
+      "grok-4-1-fast-reasoning": {
+        "calls": 57,
+        "input_tokens": 951616,
+        "output_tokens": 149916,
+        "cost_usd": 2.137128
+      },
+      "claude-sonnet-4-6": {
+        "calls": 6,
+        "input_tokens": 1527,
+        "output_tokens": 2021,
+        "cost_usd": 0.018192
+      }
+    },
+    "recent_calls": [
+      {
+        "timestamp": "2026-03-10T18:08:42.791985+00:00",
+        "model": "sonar",
+        "ticker": "TSLA",
+        "input_tokens": 350,
+        "output_tokens": 259,
+        "cost_usd": 0.000609
+      },
+      {
+        "timestamp": "2026-03-10T18:08:53.903885+00:00",
+        "model": "claude-sonnet-4-6",
+        "ticker": "TSLA",
+        "input_tokens": 255,
+        "output_tokens": 390,
+        "cost_usd": 0.006615
+      },
+      {
+        "timestamp": "2026-03-10T18:08:57.040722+00:00",
+        "model": "gpt-4o",
+        "ticker": "TSLA",
+        "input_tokens": 629,
+        "output_tokens": 77,
+        "cost_usd": 0.002342
+      },
+      {
+        "timestamp": "2026-03-10T18:10:47.310256+00:00",
+        "model": "grok-4-1-fast-reasoning",
+        "ticker": "HOOD",
+        "input_tokens": 24399,
+        "output_tokens": 3032,
+        "cost_usd": 0.118677
+      },
+      {
+        "timestamp": "2026-03-10T18:11:01.597641+00:00",
+        "model": "grok-4-1-fast-reasoning",
+        "ticker": "AAPL",
+        "input_tokens": 8976,
+        "output_tokens": 1621,
+        "cost_usd": 0.051243
+      },
+      {
+        "timestamp": "2026-03-10T18:11:26.350744+00:00",
+        "model": "grok-4-1-fast-reasoning",
+        "ticker": "MSFT",
+        "input_tokens": 11731,
+        "output_tokens": 2472,
+        "cost_usd": 0.072273
+      },
+      {
+        "timestamp": "2026-03-10T18:11:52.625780+00:00",
+        "model": "grok-4-1-fast-reasoning",
+        "ticker": "AMZN",
+        "input_tokens": 27268,
+        "output_tokens": 2727,
+        "cost_usd": 0.122709
+      },
+      {
+        "timestamp": "2026-03-10T18:12:12.041429+00:00",
+        "model": "grok-4-1-fast-reasoning",
+        "ticker": "JPM",
+        "input_tokens": 7741,
+        "output_tokens": 2388,
+        "cost_usd": 0.059043
+      },
+      {
+        "timestamp": "2026-03-10T18:12:39.623663+00:00",
+        "model": "grok-4-1-fast-reasoning",
+        "ticker": "QQQ",
+        "input_tokens": 24180,
+        "output_tokens": 3206,
+        "cost_usd": 0.12063
+      },
+      {
+        "timestamp": "2026-03-10T18:13:05.781951+00:00",
+        "model": "grok-4-1-fast-reasoning",
+        "ticker": "SPY",
+        "input_tokens": 25542,
+        "output_tokens": 2929,
+        "cost_usd": 0.120561
+      },
+      {
+        "timestamp": "2026-03-10T18:13:07.389049+00:00",
+        "model": "sonar",
+        "ticker": "SPY",
+        "input_tokens": 357,
+        "output_tokens": 53,
+        "cost_usd": 0.00041
+      },
+      {
+        "timestamp": "2026-03-10T18:13:17.653964+00:00",
+        "model": "claude-sonnet-4-6",
+        "ticker": "SPY",
+        "input_tokens": 254,
+        "output_tokens": 334,
+        "cost_usd": 0.005772
+      },
+      {
+        "timestamp": "2026-03-10T18:32:11.783392+00:00",
+        "model": "gemini-2.5-flash",
+        "ticker": "MACRO",
+        "input_tokens": 272,
+        "output_tokens": 86,
+        "cost_usd": 9.2e-05
+      },
+      {
+        "timestamp": "2026-03-10T18:32:37.403185+00:00",
+        "model": "grok-4-1-fast-reasoning",
+        "ticker": "HOOD",
+        "input_tokens": 18387,
+        "output_tokens": 2693,
+        "cost_usd": 0.095556
+      },
+      {
+        "timestamp": "2026-03-10T18:32:39.835479+00:00",
+        "model": "sonar",
+        "ticker": "HOOD",
+        "input_tokens": 360,
+        "output_tokens": 124,
+        "cost_usd": 0.000484
+      },
+      {
+        "timestamp": "2026-03-10T18:33:09.047466+00:00",
+        "model": "grok-4-1-fast-reasoning",
+        "ticker": "TSLA",
+        "input_tokens": 29716,
+        "output_tokens": 2847,
+        "cost_usd": 0.131853
+      },
+      {
+        "timestamp": "2026-03-10T18:33:10.859156+00:00",
+        "model": "sonar",
+        "ticker": "TSLA",
+        "input_tokens": 322,
+        "output_tokens": 53,
+        "cost_usd": 0.000375
+      },
+      {
+        "timestamp": "2026-03-10T18:33:43.803854+00:00",
+        "model": "grok-4-1-fast-reasoning",
+        "ticker": "NVDA",
+        "input_tokens": 30843,
+        "output_tokens": 3079,
+        "cost_usd": 0.138714
+      },
+      {
+        "timestamp": "2026-03-10T18:33:45.539009+00:00",
+        "model": "sonar",
+        "ticker": "NVDA",
+        "input_tokens": 392,
+        "output_tokens": 53,
+        "cost_usd": 0.000445
+      },
+      {
+        "timestamp": "2026-03-10T18:33:56.342201+00:00",
+        "model": "claude-sonnet-4-6",
+        "ticker": "NVDA",
+        "input_tokens": 255,
+        "output_tokens": 336,
+        "cost_usd": 0.005805
+      },
+      {
+        "timestamp": "2026-03-10T18:34:00.110491+00:00",
+        "model": "gpt-4o",
+        "ticker": "NVDA",
+        "input_tokens": 612,
+        "output_tokens": 85,
+        "cost_usd": 0.00238
+      },
+      {
+        "timestamp": "2026-03-10T18:35:38.286776+00:00",
+        "model": "grok-4-1-fast-reasoning",
+        "ticker": "META",
+        "input_tokens": 28452,
+        "output_tokens": 3208,
+        "cost_usd": 0.133476
+      },
+      {
+        "timestamp": "2026-03-10T18:36:05.424913+00:00",
+        "model": "grok-4-1-fast-reasoning",
+        "ticker": "PLTR",
+        "input_tokens": 13523,
+        "output_tokens": 2908,
+        "cost_usd": 0.084189
+      },
+      {
+        "timestamp": "2026-03-10T18:36:35.666100+00:00",
+        "model": "grok-4-1-fast-reasoning",
+        "ticker": "HOOD",
+        "input_tokens": 27873,
+        "output_tokens": 2849,
+        "cost_usd": 0.126354
+      },
+      {
+        "timestamp": "2026-03-10T18:37:11.409087+00:00",
+        "model": "grok-4-1-fast-reasoning",
+        "ticker": "AAPL",
+        "input_tokens": 22822,
+        "output_tokens": 3301,
+        "cost_usd": 0.117981
+      },
+      {
+        "timestamp": "2026-03-10T18:37:30.630077+00:00",
+        "model": "grok-4-1-fast-reasoning",
+        "ticker": "MSFT",
+        "input_tokens": 12171,
+        "output_tokens": 2241,
+        "cost_usd": 0.070128
+      },
+      {
+        "timestamp": "2026-03-10T18:37:59.619378+00:00",
+        "model": "grok-4-1-fast-reasoning",
+        "ticker": "AMZN",
+        "input_tokens": 24220,
+        "output_tokens": 2869,
+        "cost_usd": 0.115695
+      },
+      {
+        "timestamp": "2026-03-10T18:38:23.952320+00:00",
+        "model": "grok-4-1-fast-reasoning",
+        "ticker": "JPM",
+        "input_tokens": 12140,
+        "output_tokens": 2705,
+        "cost_usd": 0.076995
+      },
+      {
+        "timestamp": "2026-03-10T18:38:42.435060+00:00",
+        "model": "grok-4-1-fast-reasoning",
+        "ticker": "QQQ",
+        "input_tokens": 10163,
+        "output_tokens": 1999,
+        "cost_usd": 0.060474
+      },
+      {
+        "timestamp": "2026-03-10T18:39:04.265462+00:00",
+        "model": "grok-4-1-fast-reasoning",
+        "ticker": "SPY",
+        "input_tokens": 11587,
+        "output_tokens": 2028,
+        "cost_usd": 0.065181
+      }
+    ]
+  },
+  "parse_failures": [
+    {
+      "timestamp": "2026-03-10T18:06:48.242083+00:00",
+      "model": "gemini",
+      "ticker": "MACRO",
+      "snippet": "{\n  \"regime\": \"risk_on\",\n  \"regime_confidence\": 8,\n  \"recommended_max_exposure\": 0.85,\n  \"sectors_to_avoid\": [],\n  \"position_size_scalar\": 0.85,\n  \"macro_veto\": false"
+    }
+  ]
+};

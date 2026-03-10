@@ -1,0 +1,1024 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Synapse — Technical Strategy Brief</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cabinet+Grotesk:wght@400;500;700;800&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --coral:   #e8472a;
+      --coral-lt:#fff0ed;
+      --bg:      #f4f2ef;
+      --surface: #ffffff;
+      --ink:     #1a1a1a;
+      --muted:   #6b6b6b;
+      --border:  #e8e5e1;
+      --green:   #1a9e5c;
+      --red:     #d93025;
+      --purple:  #9333ea;
+      --blue:    #1d9bf0;
+      --shadow:  0 4px 16px rgba(0,0,0,0.06);
+      --radius:  16px;
+    }
+
+    body {
+      font-family: 'Cabinet Grotesk', sans-serif;
+      background: var(--bg);
+      background-image:
+        linear-gradient(rgba(0,0,0,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,0,0,0.03) 1px, transparent 1px);
+      background-size: 24px 24px;
+      color: var(--ink);
+      min-height: 100vh;
+      line-height: 1.6;
+    }
+
+    nav {
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 32px;
+      height: 60px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .logo { font-weight: 800; font-size: 22.5px; letter-spacing: -0.5px; }
+    .logo span { color: var(--coral); }
+    .nav-label { font-size: 13px; color: var(--muted); font-weight: 500; }
+
+    main { max-width: 1280px; margin: 0 auto; padding: 32px; }
+
+    .card {
+      background: var(--surface);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 24px;
+    }
+
+    .hero { margin-bottom: 32px; padding: 40px 0 16px; }
+    .hero h1 {
+      font-size: 42px; font-weight: 800;
+      letter-spacing: -1.5px; line-height: 1.1; margin-bottom: 12px;
+    }
+    .hero h1 em {
+      font-style: italic;
+      font-family: 'Instrument Serif', serif;
+      color: var(--coral);
+    }
+    .hero p { font-size: 16px; color: var(--muted); max-width: 720px; }
+
+    .section-title {
+      font-size: 13px; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.8px;
+      color: var(--muted); margin-bottom: 16px;
+    }
+    .section-title.large {
+      font-size: 15px; margin-bottom: 20px; margin-top: 32px;
+    }
+
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 24px; }
+    .three-col { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 24px; margin-bottom: 24px; }
+
+    .big-numbers { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 24px; }
+    .big-num .label {
+      font-size: 12px; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.8px;
+      color: var(--muted); margin-bottom: 8px;
+    }
+    .big-num .value {
+      font-family: 'Cabinet Grotesk', sans-serif;
+      font-weight: 800; font-size: 28px;
+      letter-spacing: -1px; color: var(--ink);
+    }
+    .big-num .sub { font-size: 13px; color: var(--muted); margin-top: 4px; }
+    .coral { color: var(--coral) !important; }
+    .positive { color: var(--green) !important; }
+    .negative { color: var(--red) !important; }
+
+    .params-table { width: 100%; border-collapse: collapse; font-size: 14px; }
+    .params-table td { padding: 10px 0; border-bottom: 1px solid var(--border); }
+    .params-table td:first-child { color: var(--muted); width: 55%; }
+    .params-table td:last-child { font-weight: 700; text-align: right; }
+    .params-table tr:last-child td { border-bottom: none; }
+
+    .sig-badge {
+      display: inline-block; padding: 3px 10px;
+      border-radius: 20px; font-size: 12px; font-weight: 700;
+    }
+    .sig-long  { background: rgba(26,158,92,0.12); color: var(--green); }
+    .sig-short { background: rgba(217,48,37,0.12); color: var(--red); }
+    .sig-flat  { background: var(--border); color: var(--muted); }
+    .sig-purple { background: rgba(147,51,234,0.12); color: var(--purple); }
+    .sig-blue  { background: rgba(29,155,240,0.12); color: var(--blue); }
+    .sig-coral { background: rgba(232,71,42,0.12); color: var(--coral); }
+
+    /* ── Pipeline flow ─────────────────────────────────────────────── */
+    .pipeline-flow {
+      display: flex; align-items: center; gap: 0;
+      flex-wrap: wrap; margin-bottom: 24px;
+    }
+    .pf-node {
+      display: flex; flex-direction: column; align-items: center;
+      padding: 12px 16px; border-radius: 12px; min-width: 110px;
+      background: var(--surface); border: 2px solid var(--border);
+      text-align: center;
+    }
+    .pf-node.active { border-color: var(--coral); }
+    .pf-node .pf-step {
+      font-size: 11px; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.5px; color: var(--muted); margin-bottom: 4px;
+    }
+    .pf-node .pf-name { font-size: 13px; font-weight: 800; }
+    .pf-node .pf-type { font-size: 11px; color: var(--muted); margin-top: 2px; }
+    .pf-arrow {
+      font-size: 18px; color: var(--border); padding: 0 4px;
+      font-weight: 800; flex-shrink: 0;
+    }
+
+    /* ── Code blocks ───────────────────────────────────────────────── */
+    .code-block {
+      background: #1a1a1a; color: #e8e5e1;
+      border-radius: 12px; padding: 20px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px; line-height: 1.7;
+      overflow-x: auto; margin-bottom: 16px;
+    }
+    .code-block .comment { color: #6b6b6b; }
+    .code-block .keyword { color: #e8472a; }
+    .code-block .string { color: #1a9e5c; }
+    .code-block .func { color: #1d9bf0; }
+    .code-block .num { color: #d97706; }
+
+    /* ── Arch diagram ──────────────────────────────────────────────── */
+    .arch-row {
+      display: flex; align-items: stretch; gap: 16px;
+      margin-bottom: 16px;
+    }
+    .arch-block {
+      flex: 1; border-radius: 12px; padding: 16px;
+      border: 1px solid var(--border);
+    }
+    .arch-block h4 {
+      font-size: 12px; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.8px; color: var(--muted); margin-bottom: 8px;
+    }
+    .arch-block ul {
+      list-style: none; font-size: 13px;
+    }
+    .arch-block ul li {
+      padding: 4px 0; border-bottom: 1px solid var(--border);
+    }
+    .arch-block ul li:last-child { border-bottom: none; }
+    .arch-block .mono {
+      font-family: 'JetBrains Mono', monospace; font-size: 12px;
+    }
+
+    /* ── Prose ──────────────────────────────────────────────────────── */
+    .prose { font-size: 14px; line-height: 1.8; color: var(--ink); }
+    .prose p { margin-bottom: 12px; }
+    .prose strong { font-weight: 700; }
+
+    /* ── Responsive ─────────────────────────────────────────────────── */
+    @media (max-width: 900px) {
+      .big-numbers { grid-template-columns: repeat(2, 1fr); }
+      .two-col, .three-col { grid-template-columns: 1fr; }
+      .pipeline-flow { flex-direction: column; }
+      .pf-arrow { transform: rotate(90deg); }
+    }
+    @media (max-width: 600px) {
+      main { padding: 16px; }
+      .big-numbers { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="logo" style="color:var(--ink)">Corallo Labs</div>
+  <div style="display:flex;align-items:center;gap:24px">
+    <a href="index.html" style="font-size:13px;font-weight:600;color:var(--coral);text-decoration:none;letter-spacing:0.3px">Live Dashboard</a>
+    <div class="nav-label">Technical Strategy Brief — March 2026</div>
+  </div>
+</nav>
+
+<main>
+
+  <!-- ── Hero ──────────────────────────────────────────────────────────────── -->
+  <div class="hero">
+    <div style="font-size:14px;font-weight:700;text-transform:uppercase;letter-spacing:2px;color:var(--coral);margin-bottom:12px">Synapse Algo</div>
+    <h1>Multi-model autonomous<br>trading system.<br><em>Designed, built, and deployed solo.</em></h1>
+    <p>Synapse is a fully autonomous equity trading system that orchestrates five LLMs, a deterministic technical analysis engine, and a multi-gate veto chain to generate, validate, and execute trades on Alpaca. Every component — from schema validation to bracket order execution — was architected and implemented by a single developer.</p>
+  </div>
+
+  <!-- ── At a Glance ───────────────────────────────────────────────────────── -->
+  <div class="big-numbers">
+    <div class="card big-num">
+      <div class="label">Codebase</div>
+      <div class="value coral">7,000+</div>
+      <div class="sub">lines of Python</div>
+    </div>
+    <div class="card big-num">
+      <div class="label">LLM Models</div>
+      <div class="value coral">5</div>
+      <div class="sub">Grok, Perplexity, Claude, Gemini, GPT-4o</div>
+    </div>
+    <div class="card big-num">
+      <div class="label">Pipeline Steps</div>
+      <div class="value coral">6</div>
+      <div class="sub">sequential gates per ticker</div>
+    </div>
+    <div class="card big-num">
+      <div class="label">Deployment</div>
+      <div class="value coral">Live</div>
+      <div class="sub">Alpaca paper · $100k capital</div>
+    </div>
+  </div>
+
+  <!-- ── System Architecture ───────────────────────────────────────────────── -->
+  <div class="section-title large">System Architecture</div>
+
+  <div class="card" style="margin-bottom:24px">
+    <div class="section-title">6-Step Sequential Pipeline</div>
+    <div class="pipeline-flow">
+      <div class="pf-node active">
+        <div class="pf-step">Step 1</div>
+        <div class="pf-name">Grok</div>
+        <div class="pf-type">Signal Gate</div>
+      </div>
+      <div class="pf-arrow">→</div>
+      <div class="pf-node">
+        <div class="pf-step">Step 2</div>
+        <div class="pf-name">Perplexity</div>
+        <div class="pf-type">News Gate</div>
+      </div>
+      <div class="pf-arrow">→</div>
+      <div class="pf-node">
+        <div class="pf-step">Step 3</div>
+        <div class="pf-name">Claude + Gemini</div>
+        <div class="pf-type">Fund. &amp; Macro</div>
+      </div>
+      <div class="pf-arrow">→</div>
+      <div class="pf-node">
+        <div class="pf-step">Step 4</div>
+        <div class="pf-name">Aggregator</div>
+        <div class="pf-type">Veto Chain</div>
+      </div>
+      <div class="pf-arrow">→</div>
+      <div class="pf-node" style="border-color:var(--purple)">
+        <div class="pf-step">Step 5</div>
+        <div class="pf-name">TechLevels</div>
+        <div class="pf-type">Python</div>
+      </div>
+      <div class="pf-arrow">→</div>
+      <div class="pf-node active">
+        <div class="pf-step">Step 6</div>
+        <div class="pf-name">GPT-4o</div>
+        <div class="pf-type">Order Exec</div>
+      </div>
+    </div>
+    <div class="prose">
+      <p>Each ticker in the universe is processed sequentially through all 6 steps per 30-minute cycle. Any gate failure terminates processing for that ticker immediately — the system does not attempt to recover or override. Direction is determined by weighted consensus vote across all four signal models: Grok (confidence×1.0), Claude (confidence×0.8), Gemini (regime-asymmetric: risk_on +2 long, risk_off +3 short), and Perplexity (news ±2 pts). The side with the higher score wins, but must exceed a minimum margin of 2.0 points to qualify. This replaces the original Grok-monopoly design, enabling short entries based on fundamental or macro conviction and eliminating structural long-bias.</p>
+    </div>
+  </div>
+
+  <!-- ── Model Responsibilities ────────────────────────────────────────────── -->
+  <div class="section-title large">Model Responsibilities &amp; Integration</div>
+
+  <div class="two-col">
+    <div class="card">
+      <div class="section-title">Step 1 — Grok 4 <span class="sig-badge sig-blue">SIGNAL</span></div>
+      <div class="prose">
+        <p><strong>Role:</strong> Social sentiment gate via live X/Twitter search. Scans posts and web news for momentum, narrative shifts, and unusual activity per ticker using xAI's <code>/v1/responses</code> endpoint with <code>x_search</code> + <code>web_search</code> tools.</p>
+        <p><strong>Output schema:</strong> direction (long/short/flat), confidence (1–10), momentum_state (accelerating/decelerating/stable), narrative string, unusual_activity boolean.</p>
+        <p><strong>Gate logic:</strong> Flat signal → ticker skipped entirely. Confidence &lt; 6 → vetoed at Aggregator (Rule 6). Direction feeds into the <strong>consensus vote</strong> (weighted by confidence) alongside Claude, Gemini, and Perplexity.</p>
+      </div>
+      <table class="params-table" style="margin-top:12px">
+        <tr><td>API</td><td>xAI grok-4-1-fast-reasoning</td></tr>
+        <tr><td>Calls per ticker</td><td>1 (signal only)</td></tr>
+        <tr><td>Schema enforcement</td><td>Pydantic BaseModel</td></tr>
+        <tr><td>Token budget</td><td>~160 in / ~90 out per call</td></tr>
+        <tr><td>Narrative variance</td><td>SequenceMatcher &gt;85% → confidence penalty</td></tr>
+      </table>
+    </div>
+
+    <div class="card">
+      <div class="section-title">Step 2 — Perplexity Sonar <span class="sig-badge sig-flat">GATE</span></div>
+      <div class="prose">
+        <p><strong>Role:</strong> Real-time news verification. Cross-checks Grok's sentiment signal against live web data — SEC filings, earnings, analyst actions, corporate events within the last 24 hours.</p>
+        <p><strong>Output schema:</strong> material_news boolean, news_direction enum, news_summary, grok_signal_verified boolean, trading_halt_risk boolean, sources array.</p>
+        <p><strong>Gate logic:</strong> trading_halt_risk → immediate hard veto. News direction contradicts consensus → veto at Aggregator (Rule 2). No material news → 0.85× conviction penalty on position size (signal unverified). News direction also contributes ±2 pts to the consensus vote.</p>
+      </div>
+      <table class="params-table" style="margin-top:12px">
+        <tr><td>API</td><td>Perplexity Sonar (search-grounded)</td></tr>
+        <tr><td>Pre-gate position</td><td>Blocks Claude + Gemini if failed</td></tr>
+        <tr><td>Source verification</td><td>Returns cited URLs</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="two-col">
+    <div class="card">
+      <div class="section-title">Step 3a — Claude Sonnet 4.6 <span class="sig-badge sig-flat">GATE</span></div>
+      <div class="prose">
+        <p><strong>Role:</strong> Fundamental analysis gate. Evaluates earnings quality, balance sheet risk, accounting red flags, and competitive position. Returns a confidence score and position size multiplier (0.5–1.5×) that directly scales order size.</p>
+        <p><strong>Gate logic:</strong> fundamental_view = "avoid" → hard veto (Rule 3). hold_duration = "avoid" → hard veto (Rule 4). Confidence &lt; 6 → veto (Rule 7).</p>
+        <p><strong>Cost optimization:</strong> Switched from Opus 4.5 ($15/$75 per 1M) to Sonnet 4.6 ($3/$15 per 1M) — ~80% reduction with comparable gate quality on structured extraction tasks.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="section-title">Step 3b — Gemini 2.5 Flash <span class="sig-badge sig-flat">GATE</span></div>
+      <div class="prose">
+        <p><strong>Role:</strong> Macro regime classifier. Determines market-wide risk regime (risk_on / neutral / risk_off) and returns sector avoidance list, maximum exposure recommendation, and position size scalar.</p>
+        <p><strong>Gate logic:</strong> macro_veto = true → full cycle veto (all tickers blocked). Response is cached intraday — Gemini is called once per cycle, not per ticker.</p>
+        <p><strong>Cost optimization:</strong> Cheapest model in the pipeline ($0.15/$0.60 per 1M). Single call amortized across all tickers makes per-ticker cost effectively zero.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Aggregator ────────────────────────────────────────────────────────── -->
+  <div class="card" style="margin-bottom:24px">
+    <div class="section-title">Step 4 — Aggregator: Consensus Vote + Veto Chain</div>
+    <div class="two-col" style="margin-bottom:0">
+      <div>
+        <div class="prose">
+          <p>The Aggregator operates in two phases. <strong>Phase 1 — Direction consensus:</strong> A weighted vote across all four models determines trade direction. Grok contributes confidence×1.0, Claude confidence×0.8, Gemini regime (risk_on +2 long, risk_off +3 short — asymmetric because markets drop faster), Perplexity news ±2 pts. The side with the higher score wins, but must exceed a minimum margin of 2.0 points to qualify as consensus. <strong>Phase 2 — Veto chain:</strong> 7 binary rules evaluated in order. The first failure terminates with NO_TRADE.</p>
+          <p><strong>Position sizing formula:</strong></p>
+        </div>
+        <div class="code-block" style="margin-top:12px">
+<span class="comment"># Position size = base × claude_mult × gemini_scalar × momentum_scalar × news_penalty × equity</span>
+<span class="func">size_usd</span> = (<span class="num">0.10</span> * claude.multiplier * gemini.scalar * momentum_scalar * news_penalty * portfolio_value)
+<span class="comment"># Effective range: 0.3% – 15% of equity</span>
+<span class="comment"># claude.multiplier  ∈ [0.5, 1.5]</span>
+<span class="comment"># gemini.scalar      ∈ [0.25, 1.0]</span>
+<span class="comment"># momentum_scalar    ∈ [0.25, 1.0]  (SPY/QQQ EMA-9 on 30m bars)</span>
+<span class="comment"># news_penalty       = 0.85 if no material news, else 1.0</span>
+<span class="func">size_usd</span> = <span class="func">min</span>(size_usd, <span class="num">0.07</span> * portfolio_value)  <span class="comment"># hard cap (7% equity)</span>
+        </div>
+      </div>
+      <div>
+        <table class="params-table">
+          <tr><td>Rule 1: Perplexity halt risk</td><td class="negative">Veto</td></tr>
+          <tr><td>Rule 2: News contradicts consensus</td><td class="negative">Veto</td></tr>
+          <tr><td>Rule 3: Claude fundamental = avoid</td><td class="negative">Veto</td></tr>
+          <tr><td>Rule 4: Claude hold = avoid</td><td class="negative">Veto</td></tr>
+          <tr><td>Rule 5: Gemini macro veto</td><td class="negative">Veto</td></tr>
+          <tr><td>Rule 6: Confidence floors (Grok/Claude &lt; 6)</td><td class="negative">Veto</td></tr>
+          <tr><td>Rule 7: No direction consensus (margin &lt; 2.0)</td><td class="negative">Veto</td></tr>
+          <tr><td>All gates passed</td><td class="positive">→ TRADE</td></tr>
+        </table>
+        <div style="font-size:12px;color:var(--muted);margin-top:8px">~272 lines · core/aggregator.py · 430-line test suite</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── TechLevels Engine ─────────────────────────────────────────────────── -->
+  <div class="section-title large">Technical Analysis Engine</div>
+
+  <div class="card" style="margin-bottom:24px">
+    <div class="section-title">Step 5 — TechLevels: Deterministic Structure Detection <span class="sig-badge sig-purple">PYTHON</span></div>
+    <div class="prose">
+      <p>No LLM involvement. Pure Python/NumPy/Pandas computation on OHLCV bars fetched from Alpaca. The engine runs 5 independent detectors on two timeframes (daily 12-month + hourly 30-day), scores detected levels, and snaps SL/TP to the nearest structure within ATR-bounded ranges.</p>
+    </div>
+
+    <div class="three-col" style="margin-top:16px;margin-bottom:16px">
+      <div class="arch-block">
+        <h4>Detector 1: Swing S/R</h4>
+        <ul>
+          <li>Pivot high/low detection</li>
+          <li>Left window: 5 bars</li>
+          <li>Right window: 3 bars</li>
+          <li>Multi-timeframe (daily + hourly)</li>
+          <li>Touch count tracking</li>
+        </ul>
+      </div>
+      <div class="arch-block">
+        <h4>Detector 2: Volume Profile</h4>
+        <ul>
+          <li>50 price bins across range</li>
+          <li>Volume-at-price bucketing</li>
+          <li>High-volume nodes: &gt; mean + 1σ</li>
+          <li>Identifies accumulation zones</li>
+          <li>Volume-weighted strength</li>
+        </ul>
+      </div>
+      <div class="arch-block">
+        <h4>Detector 3: Liquidity Sweeps</h4>
+        <ul>
+          <li>Equal lows/highs clustering</li>
+          <li>0.1% band tolerance</li>
+          <li>Min 3 touches to qualify</li>
+          <li>Retail stop accumulation</li>
+          <li>Sweep-aware SL placement</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="two-col" style="margin-bottom:16px">
+      <div class="arch-block">
+        <h4>Detector 4: Key Moving Averages</h4>
+        <ul>
+          <li>20 / 50 / 200 EMA on daily bars</li>
+          <li>Dynamic support/resistance</li>
+          <li>Confluence with static levels</li>
+        </ul>
+      </div>
+      <div class="arch-block">
+        <h4>Detector 5: VWAP</h4>
+        <ul>
+          <li>Volume-weighted average price</li>
+          <li>Intraday anchor level</li>
+          <li>Institutional reference point</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="two-col" style="margin-bottom:0">
+      <div>
+        <div class="section-title">Breach Detection</div>
+        <div class="prose">
+          <p>Each detected level is tested for historical breaches — bars that closed through the level beyond a 0.1% tolerance band. Each breach penalises the level's strength score by 0.15 (capped at −0.45). This identifies damaged levels that held visually but have been broken through, including polarity flips (old support acting as resistance).</p>
+        </div>
+        <div class="code-block" style="margin-top:12px">
+<span class="keyword">for</span> lvl <span class="keyword">in</span> levels:
+    band = lvl.price * <span class="num">0.001</span>
+    <span class="keyword">if</span> lvl.sr == <span class="string">'support'</span>:
+        breach_count = <span class="func">np.sum</span>(close < (lvl.price - band))
+    <span class="keyword">else</span>:
+        breach_count = <span class="func">np.sum</span>(close > (lvl.price + band))
+    lvl.breaches = <span class="func">max</span>(lvl.breaches, breach_count)
+    <span class="comment"># Penalty: -0.15 per breach, max -0.45</span>
+    score -= <span class="func">min</span>(lvl.breaches * <span class="num">0.15</span>, <span class="num">0.45</span>)
+        </div>
+      </div>
+      <div>
+        <div class="section-title">SL/TP Snap Logic</div>
+        <div class="prose">
+          <p>After scoring all levels, the engine snaps the ATR-default SL/TP to the nearest qualifying structure level. Snap must stay within ATR-bounded ranges to prevent absurd risk profiles.</p>
+        </div>
+        <table class="params-table" style="margin-top:12px">
+          <tr><td>SL snap range</td><td>0.5 – 3.0× ATR from entry</td></tr>
+          <tr><td>TP snap range</td><td>1.5 – 5.0× ATR from entry</td></tr>
+          <tr><td>Min R:R after snap</td><td>1.5× (hard floor)</td></tr>
+          <tr><td>Liquidity sweep bonus</td><td>SL placed beyond sweep zone</td></tr>
+          <tr><td>R:R violation</td><td>Reverts to ATR defaults</td></tr>
+          <tr><td>No structure found</td><td>ATR-only fallback (2.2× / 3.5×)</td></tr>
+        </table>
+        <div style="font-size:12px;color:var(--muted);margin-top:8px">1,272 lines · core/tech_levels.py</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Order Execution ───────────────────────────────────────────────────── -->
+  <div class="section-title large">Order Execution &amp; Risk Management</div>
+
+  <div class="two-col">
+    <div class="card">
+      <div class="section-title">Step 6 — GPT-4o Order Construction</div>
+      <div class="prose">
+        <p>Receives structure-adjusted SL/TP from the TechLevels engine (or ATR defaults as fallback). Constructs a market order with quantity, stop loss, and take profit. The prompt explicitly instructs GPT-4o to USE the pre-computed levels, not recalculate them. No limit price is computed — market orders fill at best available price, eliminating the spread-crossing fiction.</p>
+        <p><strong>Bracket order execution:</strong> Orders are submitted to Alpaca as OCO (One-Cancels-Other) bracket orders. The parent is a market buy/sell; the two legs are stop-loss and take-profit orders. Alpaca manages exit execution autonomously. After parent cancellation, child legs are explicitly verified and orphans force-cancelled.</p>
+      </div>
+      <table class="params-table" style="margin-top:12px">
+        <tr><td>Order type</td><td>Market (immediate fill at best price)</td></tr>
+        <tr><td>Time in force</td><td>DAY (auto-expires at close)</td></tr>
+        <tr><td>Unfilled cancel</td><td>15 minutes (backup; DAY TIF handles most cases)</td></tr>
+        <tr><td>Exit management</td><td>Alpaca bracket (OCO) + orphan leg verification</td></tr>
+        <tr><td>Max tokens</td><td>400 (increased for structure context)</td></tr>
+      </table>
+    </div>
+
+    <div class="card">
+      <div class="section-title">Risk Gate &amp; System Safeguards</div>
+      <table class="params-table">
+        <tr><td>Daily loss halt</td><td class="negative">−2% equity</td></tr>
+        <tr><td>Total drawdown stop</td><td class="negative">−15% equity</td></tr>
+        <tr><td>Max trades per day</td><td>5</td></tr>
+        <tr><td>Max total exposure</td><td>55% equity</td></tr>
+        <tr><td>Max sector exposure</td><td>25% equity</td></tr>
+        <tr><td>Max single position</td><td>7% equity</td></tr>
+        <tr><td>Per-ticker cooldown</td><td>90 min after stop-out</td></tr>
+        <tr><td>Trailing stops</td><td>BE @ +1× ATR, trail @ +2× ATR</td></tr>
+        <tr><td>Blackout: FOMC/CPI/NFP</td><td>±30 min</td></tr>
+        <tr><td>Kill switch</td><td>File-based (kill_switch.flag)</td></tr>
+        <tr><td>Parse failure handling</td><td>NO_TRADE (never guess)</td></tr>
+      </table>
+      <div style="font-size:12px;color:var(--muted);margin-top:8px">349 lines · core/risk_gate.py · 179-line test suite</div>
+    </div>
+  </div>
+
+  <!-- ── Position Sentinel ──────────────────────────────────────────────────── -->
+  <div class="section-title large">Position Sentinel — Active Risk Monitoring</div>
+
+  <div class="card" style="margin-bottom:24px">
+    <div class="two-col" style="margin-bottom:0">
+      <div>
+        <div class="section-title">Architecture</div>
+        <div class="prose">
+          <p>The system runs two phases per cycle. <strong>Phase A (Position Monitor)</strong> runs on every cycle regardless of whether the daily trade cap has been hit. It checks Grok sentiment and Perplexity news on every open position, plus the already-cached Gemini macro regime. If any sentinel trigger fires, the position is closed immediately via market order. When no sentinel trigger fires, the system checks trailing stop conditions: at +1× ATR gain, the stop moves to breakeven (entry price); at +2× ATR gain, the stop trails at 1× ATR below the current price. Stops only tighten — never widen.</p>
+          <p><strong>Phase B (Entry Pipeline)</strong> is the 6-step pipeline described above. It only runs when the daily trade cap has not been reached.</p>
+          <p>This means the system is never blind to breaking events. Even after 5 trades are filled and no more entries are allowed, the sentinel continues monitoring every 30 minutes. A Fed surprise, tariff announcement, or halt risk detected by Perplexity will trigger an early exit before the mechanical SL is hit.</p>
+        </div>
+        <div class="code-block" style="margin-top:12px">
+<span class="comment"># Per-cycle execution order</span>
+<span class="keyword">def</span> <span class="func">run_cycle</span>(self):
+    <span class="comment"># Phase A: ALWAYS runs</span>
+    live = <span class="func">_fetch_live_positions</span>(self._alpaca)
+    <span class="keyword">if</span> live:
+        <span class="func">self._monitor_open_positions</span>(live)
+
+    <span class="comment"># Phase B: only if cap not hit</span>
+    <span class="keyword">if</span> trades_today < MAX_TRADES_PER_DAY:
+        <span class="func">self._process_all_tickers</span>()
+        </div>
+      </div>
+      <div>
+        <div class="section-title">Early Exit Triggers</div>
+        <table class="params-table">
+          <tr><td>Grok sentiment flips to opposite direction</td><td class="negative">Market close</td></tr>
+          <tr><td>Perplexity detects trading halt risk</td><td class="negative">Market close</td></tr>
+          <tr><td>Perplexity news contradicts held position</td><td class="negative">Market close</td></tr>
+          <tr><td>Gemini regime → risk_off (longs held)</td><td class="negative">Market close</td></tr>
+          <tr><td>Gemini regime → risk_on (shorts held)</td><td class="negative">Market close</td></tr>
+          <tr><td>SPY/QQQ intraday selloff (asymmetric contagion)</td><td class="negative">Market close</td></tr>
+        </table>
+
+        <div class="section-title" style="margin-top:20px">Cost Impact</div>
+        <table class="params-table">
+          <tr><td>Grok per open position</td><td>~$0.002 / call</td></tr>
+          <tr><td>Perplexity per open position</td><td>~$0.0005 / call</td></tr>
+          <tr><td>Gemini (cached per cycle)</td><td>$0.00 (free)</td></tr>
+          <tr><td>Avg 2 positions × 13 cycles/day</td><td>~$0.07 / day</td></tr>
+        </table>
+        <div style="font-size:12px;color:var(--muted);margin-top:8px">Sentinel adds &lt;$0.10/day for continuous protection against gap-through-stop events.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Backend Architecture ──────────────────────────────────────────────── -->
+  <div class="section-title large">Backend Architecture &amp; Engineering</div>
+
+  <div class="card" style="margin-bottom:24px">
+    <div class="section-title">Project Structure</div>
+    <div class="code-block">
+<span class="string">synapse/</span>
+├── <span class="func">main.py</span>              <span class="comment"># 1,358 lines — orchestrator, pipeline, state management</span>
+├── <span class="func">config.py</span>            <span class="comment"># 72 lines  — all tuneable parameters, ticker universe</span>
+├── <span class="string">core/</span>
+│   ├── <span class="func">tech_levels.py</span>   <span class="comment"># 1,272 lines — 5 detectors, scoring, snap logic, reconciliation</span>
+│   ├── <span class="func">executor.py</span>      <span class="comment"># 486 lines — Alpaca bracket orders, fill monitoring, trailing stops</span>
+│   ├── <span class="func">risk_gate.py</span>     <span class="comment"># 349 lines — exposure limits, drawdown checks, cooldowns</span>
+│   ├── <span class="func">aggregator.py</span>    <span class="comment"># 272 lines — 8-rule veto chain, position sizing</span>
+│   ├── <span class="func">scheduler.py</span>     <span class="comment"># 176 lines — market hours, 30-min cycle timing</span>
+│   ├── <span class="func">cost_tracker.py</span>  <span class="comment"># 130 lines — per-model token/cost accounting</span>
+│   └── <span class="func">kill_switch.py</span>   <span class="comment"># 40 lines  — file-based emergency stop</span>
+├── <span class="string">models/</span>
+│   ├── <span class="func">grok.py</span>          <span class="comment"># 419 lines — signal gate + narrative variance detection</span>
+│   ├── <span class="func">gpt4o.py</span>         <span class="comment"># 216 lines — order construction (ATR + structure templates)</span>
+│   ├── <span class="func">claude_analyst.py</span> <span class="comment"># 155 lines — fundamental analysis gate</span>
+│   ├── <span class="func">gemini.py</span>        <span class="comment"># 142 lines — macro regime classifier</span>
+│   └── <span class="func">perplexity.py</span>    <span class="comment"># 127 lines — news verification gate</span>
+├── <span class="string">schemas/</span>
+│   ├── <span class="func">grok_schema.py</span>   <span class="comment"># Pydantic: GrokOutput, GrokChartAssessment, GrokLevelAssessment</span>
+│   ├── <span class="func">claude_schema.py</span> <span class="comment"># Pydantic: ClaudeOutput (view, confidence, multiplier, risks)</span>
+│   ├── <span class="func">gemini_schema.py</span> <span class="comment"># Pydantic: GeminiOutput (regime, scalar, veto, sectors)</span>
+│   ├── <span class="func">gpt4o_schema.py</span>  <span class="comment"># Pydantic: GPT4oOutput (order params, SL/TP, reasoning)</span>
+│   └── <span class="func">perplexity_schema.py</span> <span class="comment"># Pydantic: PerplexityOutput (news, halt risk, sources)</span>
+├── <span class="string">tests/</span>              <span class="comment"># 1,110 lines — aggregator, risk gate, schema, Grok live verification</span>
+├── <span class="string">dashboard/</span>
+│   ├── <span class="func">index.html</span>       <span class="comment"># Live dashboard — equity curve, positions, trade log, costs</span>
+│   ├── <span class="func">strategy.html</span>    <span class="comment"># This document</span>
+│   ├── <span class="func">data.js</span>          <span class="comment"># Auto-generated every 60s — window.LIVE_DATA</span>
+│   └── <span class="func">data.json</span>        <span class="comment"># Same payload for HTTP consumers</span>
+├── <span class="string">backtest/</span>
+│   └── <span class="func">atr_backtest.py</span>  <span class="comment"># 366 lines — vectorized ATR parameter validation</span>
+├── <span class="string">scripts/</span>
+│   └── <span class="func">attach_exits.py</span>  <span class="comment"># 122 lines — retroactive bracket attachment utility</span>
+└── <span class="func">HISTORY.md</span>           <span class="comment"># Strategy evolution & project history</span>
+    </div>
+  </div>
+
+  <!-- ── Index Technical Pre-Filter ─────────────────────────────────────── -->
+  <div class="card" style="margin-bottom:24px">
+    <div class="section-title">Index Technical Pre-Filter</div>
+    <div class="prose">
+      <p>Before any individual stock enters the pipeline, SPY and QQQ are checked for short-term technical regime. This is a deterministic check — zero API cost — that runs once per cycle. Based on academic evidence that ~90% of price discovery starts in index futures/ETFs and propagates to constituents (Hasbrouck 2003), and that correlations spike asymmetrically during selloffs (Ang &amp; Chen 2002).</p>
+      <p><strong>Four signals scored per index:</strong> (1) Price vs hourly EMA-20 (trend), (2) 5-bar hourly momentum (direction), (3) Price vs daily SMA-50 (intermediate trend), (4) Last bar wick analysis (resistance rejection / support bounce). Scores averaged across SPY + QQQ.</p>
+    </div>
+    <table class="params-table" style="margin-top:16px">
+      <tr><td>Aggregate score &le; -1.0</td><td class="negative">Bearish — block all longs</td></tr>
+      <tr><td>Aggregate score &ge; +1.0</td><td class="positive">Bullish — block all shorts</td></tr>
+      <tr><td>Score between -1.0 and +1.0</td><td>Neutral — no filter applied</td></tr>
+    </table>
+    <div style="font-size:12px;color:var(--muted);margin-top:12px">Entering longs while SPY/QQQ reject resistance is fighting the ETF arbitrage transmission chain. This filter prevents it at zero cost.</div>
+  </div>
+
+  <!-- ── Asymmetric Sentinel Sensitivity ───────────────────────────────────── -->
+  <div class="card" style="margin-bottom:24px">
+    <div class="section-title">Asymmetric Sentinel Sensitivity</div>
+    <div class="prose">
+      <p>The Position Sentinel (Phase A) now carries an additional trigger that exploits the asymmetry of index-to-stock correlation. Ang &amp; Chen (2002) demonstrate that downside correlations are 11.6% higher than normal — when SPY/QQQ sell off, individual stocks are dragged down harder and faster than they are lifted during rallies. ETF arbitrage (Ben-David et al. 2018) mechanically forces constituent prices to converge, regardless of individual stock fundamentals.</p>
+      <p>Once per sentinel cycle, SPY and QQQ intraday momentum is computed from today's hourly bars (open-to-current change). If a sharp selloff is detected, all open long positions are closed immediately — the system does not wait for Grok or Perplexity to confirm. The contagion is mechanical, not sentiment-driven.</p>
+    </div>
+    <table class="params-table" style="margin-top:16px">
+      <tr><td>Avg SPY/QQQ intraday &le; -0.8%</td><td class="negative">Selloff &mdash; close all longs</td></tr>
+      <tr><td>Any single index intraday &le; -1.2%</td><td class="negative">Sharp selloff &mdash; close all longs</td></tr>
+      <tr><td>Avg SPY/QQQ intraday &ge; +0.8%</td><td class="positive">Rally &mdash; close all shorts</td></tr>
+      <tr><td>Any single index intraday &ge; +1.2%</td><td class="positive">Sharp rally &mdash; close all shorts</td></tr>
+    </table>
+    <div style="font-size:12px;color:var(--muted);margin-top:12px">This is Trigger 5 in the sentinel chain. It fires before the "position OK" conclusion. Zero API cost — Alpaca bar data only.</div>
+  </div>
+
+  <!-- ── Index Momentum Position Scalar ────────────────────────────────────── -->
+  <div class="card" style="margin-bottom:24px">
+    <div class="section-title">Index Momentum Position Scalar</div>
+    <div class="prose">
+      <p>Enhances the Gemini macro gate with a deterministic, quantitative position-size adjustment. Before each new entry, SPY and QQQ 30-minute bars are checked against their EMA-9. When both indices trade below EMA-9, the system scales down position size for longs proportional to the intraday decline magnitude. The reverse applies for shorts during rallies.</p>
+      <p>This does not replace Gemini's LLM-based macro analysis — it multiplies on top of the existing <code>claude_mult &times; gemini_scalar</code> formula. The final position size becomes: <code>BASE_POSITION_SIZE &times; claude_mult &times; gemini_scalar &times; momentum_scalar &times; portfolio_value</code>.</p>
+    </div>
+    <table class="params-table" style="margin-top:16px">
+      <tr><td>Both SPY/QQQ above EMA-9 (30m)</td><td class="positive">1.0&times; &mdash; full size</td></tr>
+      <tr><td>Mixed signals (one above, one below)</td><td>0.75&times; &mdash; mild reduction</td></tr>
+      <tr><td>Both below EMA-9, intraday &gt; -0.3%</td><td class="negative">0.50&times; &mdash; half size</td></tr>
+      <tr><td>Both below EMA-9, intraday &le; -0.3%</td><td class="negative">0.50&times; &mdash; half size</td></tr>
+      <tr><td>Both below EMA-9, intraday &le; -0.6%</td><td class="negative">0.25&times; &mdash; quarter size</td></tr>
+    </table>
+    <div style="font-size:12px;color:var(--muted);margin-top:12px">Entering full-size longs against index momentum is empirically suboptimal (Hasbrouck 2003). This scalar prevents it without blocking the trade entirely. Zero API cost.</div>
+  </div>
+
+  <!-- ── Ticker Universe ──────────────────────────────────────────────────── -->
+  <div class="card" style="margin-bottom:24px">
+    <div class="section-title">Ticker Universe — Selection Criteria</div>
+    <div class="prose">
+      <p>11 tickers selected on three filters. <strong>Social signal density:</strong> Grok scans X/Twitter for direction — tickers with low mention volume produce noisy, low-confidence signals. Every ticker in the universe has consistently high daily social volume (NVDA, TSLA, META, PLTR, HOOD lead retail/fintwit; AAPL, MSFT, AMZN cover institutional + retail; JPM covers financials).</p>
+      <p><strong>Liquidity and spread:</strong> All 11 trade &gt;10M shares/day with sub-penny effective spreads. This matters for bracket order fills and fast sentinel closes — illiquid names would slip through stops or fail to fill on early exits.</p>
+      <p><strong>Index coverage:</strong> QQQ and SPY serve as macro regime proxies. They let the system trade directional macro views when Grok detects strong index-level sentiment (post-FOMC momentum, tariff reaction) and provide natural hedging against single-name positions.</p>
+      <p><strong>Why not more?</strong> Each ticker costs 4–5 API calls per cycle. At 11 tickers × ~5 calls × 48 cycles/day, that's ~2,640 API calls daily. Adding tickers scales cost linearly. <strong>Why no small/mid caps?</strong> Low social volume → unreliable Grok signals. Low liquidity → poor fills. The veto chain already kills ~70% of signals — low-quality tickers just burn API spend on trades that get vetoed.</p>
+    </div>
+  </div>
+
+  <div class="two-col">
+    <div class="card">
+      <div class="section-title">Design Decisions</div>
+      <div class="prose">
+        <p><strong>Sequential over parallel pipeline.</strong> Each model's output feeds the next. Claude and Gemini run in parallel (Step 3) because they're independent gates, but Perplexity must pass before either is invoked. This isn't a limitation — it's a cost optimization that prevents wasting expensive Claude calls on tickers that will be vetoed by cheap Perplexity checks.</p>
+        <p><strong>Pydantic schema enforcement on every LLM call.</strong> Every model response is parsed into a typed Pydantic model with field constraints (ge=, le=, min_length=). Parse failures produce NO_TRADE, never fallback values. The system does not guess what the LLM meant.</p>
+        <p><strong>Deterministic computation where LLMs aren't needed.</strong> Python handles all technical analysis math (pivot detection, volume clustering, breach counting, SL/TP snapping). The Grok chart critic — which re-evaluated these same levels via LLM — was removed after finding it added 22 seconds of latency and zero new information over the deterministic output.</p>
+        <p><strong>No database.</strong> Trade log is a JSON file. State is a JSON file. Dashboard data is a JS file. This is a single-user paper trading system — the complexity of a database would be pure overhead. File I/O is atomic enough for a single-threaded async loop.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="section-title">Technical Stack</div>
+      <table class="params-table">
+        <tr><td>Runtime</td><td>Python 3.11 + asyncio</td></tr>
+        <tr><td>Broker API</td><td>Alpaca v2 (REST)</td></tr>
+        <tr><td>LLM APIs</td><td>5 providers (OpenAI, Anthropic, Google, xAI, Perplexity)</td></tr>
+        <tr><td>Data processing</td><td>NumPy + Pandas</td></tr>
+        <tr><td>Schema validation</td><td>Pydantic v2</td></tr>
+        <tr><td>Configuration</td><td>python-dotenv + config.py</td></tr>
+        <tr><td>Dashboard</td><td>Vanilla HTML/JS + Chart.js</td></tr>
+        <tr><td>State persistence</td><td>JSON files (no DB)</td></tr>
+        <tr><td>Background tasks</td><td>Threading (positions updater, 60s)</td></tr>
+        <tr><td>Testing</td><td>pytest (1,110 lines across 4 suites + Grok live verification)</td></tr>
+      </table>
+
+      <div class="section-title" style="margin-top:20px">Concurrency Model</div>
+      <div class="prose">
+        <p>Main loop is async (asyncio). LLM calls within a ticker are sequential (output feeds next step). Claude + Gemini are gathered in parallel via asyncio.gather(). Background thread polls Alpaca every 60s for live P/L and trade log reconciliation. No multiprocessing — everything runs in one process.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── API Cost Architecture ─────────────────────────────────────────────── -->
+  <div class="section-title large">API Cost Architecture</div>
+
+  <div class="card" style="margin-bottom:24px">
+    <div class="two-col" style="margin-bottom:0">
+      <div>
+        <div class="section-title">Per-Model Pricing (1M Tokens)</div>
+        <table class="params-table">
+          <tr><td>Grok 4 (×1 call/ticker)</td><td>$3.00 / $15.00</td></tr>
+          <tr><td>Perplexity Sonar</td><td>$1.00 / $1.00</td></tr>
+          <tr><td>Claude Sonnet 4.6</td><td>$3.00 / $15.00</td></tr>
+          <tr><td>Gemini 2.5 Flash</td><td>$0.15 / $0.60</td></tr>
+          <tr><td>GPT-4o</td><td>$2.50 / $10.00</td></tr>
+        </table>
+        <div style="font-size:12px;color:var(--muted);margin-top:8px">Input / Output. Grok called once per ticker (signal only). Chart critic removed — zero new information over deterministic TechLevels.</div>
+      </div>
+      <div>
+        <div class="section-title">Cost Optimization Decisions</div>
+        <div class="prose">
+          <p><strong>Perplexity as pre-gate (Step 2):</strong> At $1/$1 per 1M tokens, Perplexity is the cheapest model. Placing it before Claude ($3/$15) means doomed tickers are killed before the expensive call.</p>
+          <p><strong>Gemini caching:</strong> One call per cycle, not per ticker. With 11 tickers, this is an 11× cost reduction on macro analysis.</p>
+          <p><strong>Claude model switch:</strong> Opus 4.5 → Sonnet 4.6 reduced Claude's per-call cost by ~80% ($0.018 → $0.004 avg). Gate accuracy remained comparable — structured extraction with Pydantic schemas doesn't require frontier reasoning.</p>
+          <p><strong>TechLevels (Step 5):</strong> Zero API cost. All computation is local Python. This is the most complex analysis step in the pipeline and it costs nothing per call.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Data Flow ─────────────────────────────────────────────────────────── -->
+  <div class="section-title large">Data Flow &amp; Persistence</div>
+
+  <div class="card" style="margin-bottom:24px">
+    <div class="section-title">Per-Cycle Data Flow</div>
+    <div class="arch-row">
+      <div class="arch-block" style="background:var(--coral-lt)">
+        <h4>Input (per ticker)</h4>
+        <ul>
+          <li class="mono">Alpaca: OHLCV daily (12mo) + hourly (30d)</li>
+          <li class="mono">Alpaca: current quote, ATR(14)</li>
+          <li class="mono">Alpaca: account equity, positions</li>
+          <li class="mono">Grok: X/Twitter sentiment</li>
+          <li class="mono">Perplexity: live web/news</li>
+        </ul>
+      </div>
+      <div class="arch-block">
+        <h4>Processing</h4>
+        <ul>
+          <li class="mono">6-step pipeline (4–5 API calls)</li>
+          <li class="mono">TechLevels: 5 detectors + scoring</li>
+          <li class="mono">Aggregator: 7 binary gate checks</li>
+          <li class="mono">Risk gate: exposure + drawdown</li>
+          <li class="mono">Per-ticker cooldown enforcement</li>
+        </ul>
+      </div>
+      <div class="arch-block" style="background:rgba(26,158,92,0.06)">
+        <h4>Output</h4>
+        <ul>
+          <li class="mono">Alpaca: bracket order (market + OCO)</li>
+          <li class="mono">data/trade_log.json (append)</li>
+          <li class="mono">data/veto_log.json (append)</li>
+          <li class="mono">dashboard/data.js (overwrite)</li>
+          <li class="mono">data/cost_log.json (append)</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="section-title">Trade Log Reconciliation</div>
+    <div class="prose">
+      <p>Every 60 seconds, the background thread fetches live positions from Alpaca and cross-references against the trade log. Trades whose ticker is no longer present in Alpaca's open positions are marked as closed. Exit price is sourced from Alpaca's closed orders API when available, falling back to the stop-loss price (conservative estimate) when the API doesn't return a fill. P/L is computed and persisted to the trade log, which the dashboard reads on next refresh.</p>
+    </div>
+  </div>
+
+  <!-- ── Testing ───────────────────────────────────────────────────────────── -->
+  <div class="two-col">
+    <div class="card">
+      <div class="section-title">Testing Coverage</div>
+      <table class="params-table">
+        <tr><td>test_aggregator.py</td><td>430 lines</td></tr>
+        <tr><td>test_risk_gate.py</td><td>179 lines</td></tr>
+        <tr><td>test_schemas.py</td><td>212 lines</td></tr>
+        <tr><td>test_json_utils.py</td><td>59 lines</td></tr>
+        <tr><td>verify_grok_live.py</td><td>229 lines</td></tr>
+        <tr><td>Total test lines</td><td>1,110</td></tr>
+      </table>
+      <div class="prose" style="margin-top:12px">
+        <p>Tests cover the critical path: aggregator veto logic (all 8 rules, edge cases, position sizing bounds), risk gate (exposure limits, drawdown halts, cooldowns), and Pydantic schema validation (field constraints, enum values, parse failures). LLM integration is not unit-tested — those are end-to-end by nature and validated by the Pydantic parse-or-fail approach.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="section-title">What This Project Demonstrates</div>
+      <div class="prose">
+        <p><strong>Multi-API orchestration.</strong> Five different LLM providers, each with different auth patterns, response formats, and failure modes, coordinated in a single pipeline with consistent error handling.</p>
+        <p><strong>Hybrid AI architecture.</strong> Knowing when to use deterministic computation vs. LLM inference, and designing the boundary between them (Python detects levels, LLM validates judgment).</p>
+        <p><strong>Production-grade risk engineering.</strong> Kill switches, drawdown halts, exposure caps, per-ticker cooldowns, parse failure handling. The system is designed to fail safely — every unknown state maps to NO_TRADE.</p>
+        <p><strong>Cost-conscious LLM deployment.</strong> Pre-gate ordering, model selection (Sonnet over Opus), caching strategies, and zero-cost local computation where LLMs aren't needed.</p>
+        <p><strong>Schema-driven development.</strong> Pydantic models define the contract between every system boundary. No untyped dicts, no string parsing, no "hope the LLM returns the right format."</p>
+        <p><strong>Full-stack ownership.</strong> Backend pipeline, technical analysis engine, order execution, risk management, dashboard, cost tracking, and deployment — single developer, end to end.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Live Trade Walkthrough ───────────────────────────────────────────── -->
+  <div class="section-title large">Live Trade Walkthrough — TSLA Short</div>
+  <div class="card" style="margin-bottom:24px">
+    <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;margin-bottom:28px;padding-bottom:24px;border-bottom:1px solid var(--border)">
+      <div>
+        <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.8px;color:var(--muted);margin-bottom:6px">Real execution · Mar 10, 2026 · 11:08 AM ET</div>
+        <div style="font-size:28px;font-weight:800;letter-spacing:-1px">TSLA <span class="sig-short" style="font-size:16px;vertical-align:middle;margin-left:8px">SHORT</span></div>
+        <div style="font-size:14px;color:var(--muted);margin-top:4px">All five models aligned bearish. Full chain survived. Bracket order filled.</div>
+      </div>
+      <div style="display:flex;gap:24px;flex-wrap:wrap">
+        <div style="text-align:right">
+          <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.8px;color:var(--muted)">Fill Price</div>
+          <div style="font-size:24px;font-weight:800;letter-spacing:-0.5px">$401.37</div>
+        </div>
+        <div style="text-align:right">
+          <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.8px;color:var(--muted)">Qty</div>
+          <div style="font-size:24px;font-weight:800;letter-spacing:-0.5px">7 sh</div>
+        </div>
+        <div style="text-align:right">
+          <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.8px;color:var(--muted)">Position Size</div>
+          <div style="font-size:24px;font-weight:800;letter-spacing:-0.5px">$3,030</div>
+        </div>
+        <div style="text-align:right">
+          <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.8px;color:var(--muted)">Stop Loss</div>
+          <div style="font-size:24px;font-weight:800;letter-spacing:-0.5px;color:var(--red)">$430.43</div>
+        </div>
+        <div style="text-align:right">
+          <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.8px;color:var(--muted)">Take Profit</div>
+          <div style="font-size:24px;font-weight:800;letter-spacing:-0.5px;color:var(--green)">$355.50</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Timeline -->
+    <div style="position:relative;padding-left:40px">
+
+      <!-- Connector line -->
+      <div style="position:absolute;left:15px;top:24px;bottom:24px;width:2px;background:var(--border);border-radius:2px"></div>
+
+      <!-- Step 1: Grok -->
+      <div style="position:relative;margin-bottom:28px">
+        <div style="position:absolute;left:-33px;top:14px;width:20px;height:20px;border-radius:50%;background:var(--blue);border:3px solid var(--surface);display:flex;align-items:center;justify-content:center">
+          <div style="width:6px;height:6px;border-radius:50%;background:white"></div>
+        </div>
+        <div style="background:rgba(29,155,240,0.06);border:1px solid rgba(29,155,240,0.2);border-radius:12px;padding:16px 20px">
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;flex-wrap:wrap;gap:8px">
+            <div style="display:flex;align-items:center;gap:10px">
+              <span style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.8px;color:var(--muted)">Step 1</span>
+              <span style="font-size:15px;font-weight:800">Grok 4 Reasoning</span>
+              <span class="sig-badge sig-blue">SIGNAL</span>
+            </div>
+            <span class="sig-badge sig-short">SHORT · conf 7 · decelerating</span>
+          </div>
+          <div style="font-size:13px;color:var(--muted);margin-bottom:10px">Real-time X/Twitter sentiment scan. Grok fires a directional signal with confidence ≥ threshold — ticker advances to Step 2. Flat signals skip the remaining 5 steps entirely.</div>
+          <div class="code-block" style="margin:0;font-size:11px;padding:12px 16px">
+            <span class="comment">// grok-4-1-fast-reasoning → /v1/responses with x_search + web_search</span><br>
+            direction=<span class="string">"short"</span>  confidence=<span class="num">7</span>  momentum=<span class="string">"decelerating"</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 2: Perplexity -->
+      <div style="position:relative;margin-bottom:28px">
+        <div style="position:absolute;left:-33px;top:14px;width:20px;height:20px;border-radius:50%;background:var(--green);border:3px solid var(--surface);display:flex;align-items:center;justify-content:center">
+          <div style="width:6px;height:6px;border-radius:50%;background:white"></div>
+        </div>
+        <div style="background:rgba(26,158,92,0.06);border:1px solid rgba(26,158,92,0.2);border-radius:12px;padding:16px 20px">
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;flex-wrap:wrap;gap:8px">
+            <div style="display:flex;align-items:center;gap:10px">
+              <span style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.8px;color:var(--muted)">Step 2</span>
+              <span style="font-size:15px;font-weight:800">Perplexity Sonar</span>
+              <span class="sig-badge sig-flat">NEWS GATE</span>
+            </div>
+            <span class="sig-badge sig-short">BEARISH NEWS · PASS</span>
+          </div>
+          <div style="font-size:13px;color:var(--muted);margin-bottom:10px">News verification gate. Material bearish news aligns with Grok's short signal — no contradiction, no halt risk. Pipeline advances. A bearish news + long Grok signal would have killed the trade here.</div>
+          <div class="code-block" style="margin:0;font-size:11px;padding:12px 16px">
+            material_news=<span class="keyword">True</span>  news_direction=<span class="string">"bearish"</span>  halt_risk=<span class="keyword">False</span>  verified=<span class="keyword">False</span><br>
+            <span class="comment">// verified=False means no specific item confirmed Grok — but bearish ≡ short, no contradiction</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 3a: Claude -->
+      <div style="position:relative;margin-bottom:28px">
+        <div style="position:absolute;left:-33px;top:14px;width:20px;height:20px;border-radius:50%;background:var(--coral);border:3px solid var(--surface);display:flex;align-items:center;justify-content:center">
+          <div style="width:6px;height:6px;border-radius:50%;background:white"></div>
+        </div>
+        <div style="background:rgba(232,71,42,0.06);border:1px solid rgba(232,71,42,0.2);border-radius:12px;padding:16px 20px">
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;flex-wrap:wrap;gap:8px">
+            <div style="display:flex;align-items:center;gap:10px">
+              <span style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.8px;color:var(--muted)">Step 3a</span>
+              <span style="font-size:15px;font-weight:800">Claude Sonnet 4.6</span>
+              <span class="sig-badge sig-flat">FUNDAMENTAL GATE</span>
+            </div>
+            <span class="sig-badge sig-short">BEARISH · conf 7 · size ×1.2</span>
+          </div>
+          <div style="font-size:13px;color:var(--muted);margin-bottom:10px">Fundamental analysis gate. Evaluates earnings, valuation, and macro tailwinds. Bearish view with confidence 7 contributes −weight to the aggregator vote. Size multiplier 1.2 signals high conviction — positions up to the 7% cap.</div>
+          <div class="code-block" style="margin:0;font-size:11px;padding:12px 16px">
+            view=<span class="string">"bearish"</span>  confidence=<span class="num">7</span>  hold=<span class="string">"swing"</span>  size_mult=<span class="num">1.2</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 3b: Gemini -->
+      <div style="position:relative;margin-bottom:28px">
+        <div style="position:absolute;left:-33px;top:14px;width:20px;height:20px;border-radius:50%;background:var(--purple);border:3px solid var(--surface);display:flex;align-items:center;justify-content:center">
+          <div style="width:6px;height:6px;border-radius:50%;background:white"></div>
+        </div>
+        <div style="background:rgba(147,51,234,0.06);border:1px solid rgba(147,51,234,0.2);border-radius:12px;padding:16px 20px">
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;flex-wrap:wrap;gap:8px">
+            <div style="display:flex;align-items:center;gap:10px">
+              <span style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.8px;color:var(--muted)">Step 3b</span>
+              <span style="font-size:15px;font-weight:800">Gemini 2.5 Flash</span>
+              <span class="sig-badge sig-flat">MACRO GATE</span>
+            </div>
+            <span class="sig-badge" style="background:rgba(147,51,234,0.12);color:var(--purple)">RISK-ON · conf 8 · scalar ×1.0</span>
+          </div>
+          <div style="font-size:13px;color:var(--muted);margin-bottom:10px">Macro regime gate. Risk-on with full scalar — no veto. Critically, the index technical pre-filter read SPY/QQQ as neutral (score 0.50), not bullish, so shorts were not blocked. A bullish score ≥ 1.0 would have vetoed the short here.</div>
+          <div class="code-block" style="margin:0;font-size:11px;padding:12px 16px">
+            regime=<span class="string">"risk_on"</span>  confidence=<span class="num">8</span>  scalar=<span class="num">1.0</span>  macro_veto=<span class="keyword">False</span><br>
+            <span class="comment">// Index pre-filter: score=0.50 (neutral) → block_shorts=False → short allowed</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 4: Aggregator -->
+      <div style="position:relative;margin-bottom:28px">
+        <div style="position:absolute;left:-33px;top:14px;width:20px;height:20px;border-radius:50%;background:#d97706;border:3px solid var(--surface);display:flex;align-items:center;justify-content:center">
+          <div style="width:6px;height:6px;border-radius:50%;background:white"></div>
+        </div>
+        <div style="background:rgba(217,119,6,0.06);border:1px solid rgba(217,119,6,0.25);border-radius:12px;padding:16px 20px">
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;flex-wrap:wrap;gap:8px">
+            <div style="display:flex;align-items:center;gap:10px">
+              <span style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.8px;color:var(--muted)">Step 4</span>
+              <span style="font-size:15px;font-weight:800">Aggregator</span>
+              <span class="sig-badge sig-flat">CONSENSUS VOTE</span>
+            </div>
+            <span class="sig-badge" style="background:rgba(217,119,6,0.12);color:#d97706">TRADE · margin 12.6</span>
+          </div>
+          <div style="font-size:13px;color:var(--muted);margin-bottom:10px">Weighted vote across all models. Short direction wins 14.6 to 2.0 — margin of 12.6 clears the 2.0 minimum. Seven veto rules evaluated sequentially. All pass. Trade authorised.</div>
+          <div class="code-block" style="margin:0;font-size:11px;padding:12px 16px">
+            long=<span class="num">2.0</span>  short=<span class="num">14.6</span>  consensus=<span class="string">"short"</span>  margin=<span class="num">12.6</span>  <span class="comment">// min required: 2.0</span><br>
+            direction=<span class="string">"short"</span>  final_confidence=<span class="num">7.0</span>  size_mult=<span class="num">1.20</span>  → <span class="keyword">TRADE</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 5: TechLevels + Risk Gate -->
+      <div style="position:relative;margin-bottom:28px">
+        <div style="position:absolute;left:-33px;top:14px;width:20px;height:20px;border-radius:50%;background:var(--purple);border:3px solid var(--surface);display:flex;align-items:center;justify-content:center">
+          <div style="width:6px;height:6px;border-radius:50%;background:white"></div>
+        </div>
+        <div style="background:rgba(147,51,234,0.06);border:1px solid rgba(147,51,234,0.2);border-radius:12px;padding:16px 20px">
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;flex-wrap:wrap;gap:8px">
+            <div style="display:flex;align-items:center;gap:10px">
+              <span style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.8px;color:var(--muted)">Step 5</span>
+              <span style="font-size:15px;font-weight:800">TechLevels + Risk Gate</span>
+              <span class="sig-badge sig-purple">PYTHON</span>
+            </div>
+            <span class="sig-badge" style="background:rgba(147,51,234,0.12);color:var(--purple)">ATR=13.15 · scalar ×0.25</span>
+          </div>
+          <div style="font-size:13px;color:var(--muted);margin-bottom:10px">Deterministic structure detection computes ATR and identifies S/R levels. The index momentum scalar reduces position size to 25% of normal — both SPY and QQQ are above their 9-period EMAs in a sharp rally, making a short entry counter-trend. The risk gate approves at the reduced size.</div>
+          <div class="code-block" style="margin:0;font-size:11px;padding:12px 16px">
+            ATR=<span class="num">13.15</span>  SL=<span class="num">430.43</span> <span class="comment">(atr_default)</span>  TP=<span class="num">355.50</span> <span class="comment">(atr_default)</span><br>
+            momentum_scalar=<span class="num">0.25</span>  <span class="comment">// both_above_ema9_sharp_rally — counter-trend penalty applied</span><br>
+            risk_gate → PASS  portfolio=<span class="num">$101,023</span>  proposed=<span class="num">$3,030.71</span>  <span class="comment">// capped from $7,163 full size</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 6: GPT-4o Order + Fill -->
+      <div style="position:relative">
+        <div style="position:absolute;left:-33px;top:14px;width:20px;height:20px;border-radius:50%;background:var(--green);border:3px solid var(--surface);display:flex;align-items:center;justify-content:center">
+          <div style="width:6px;height:6px;border-radius:50%;background:white"></div>
+        </div>
+        <div style="background:rgba(26,158,92,0.06);border:1px solid rgba(26,158,92,0.25);border-radius:12px;padding:16px 20px">
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;flex-wrap:wrap;gap:8px">
+            <div style="display:flex;align-items:center;gap:10px">
+              <span style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.8px;color:var(--muted)">Step 6</span>
+              <span style="font-size:15px;font-weight:800">GPT-4o → Bracket Order → Fill</span>
+              <span class="sig-badge sig-flat">ORDER</span>
+            </div>
+            <span class="sig-badge" style="background:rgba(26,158,92,0.12);color:var(--green)">FILLED $401.37</span>
+          </div>
+          <div style="font-size:13px;color:var(--muted);margin-bottom:10px">GPT-4o constructs the order parameters using TechLevels output. A bracket order is submitted — one market sell entry, one stop leg at $430.43, one limit leg at $355.50. Alpaca fills 61 seconds after submission at $401.37.</div>
+          <div class="code-block" style="margin:0;font-size:11px;padding:12px 16px">
+            <span class="comment">// Bracket order — market entry + OCO child legs</span><br>
+            side=<span class="string">"sell_short"</span>  qty=<span class="num">7</span>  type=<span class="string">"market"</span>  SL=<span class="num">$430.43</span>  TP=<span class="num">$355.50</span><br>
+            order_id=<span class="string">"ca90ad43-bcde-4985-813d-343dff848638"</span><br>
+            fill_price=<span class="num">$401.37</span>  fill_latency=<span class="num">61s</span>  R:R = <span class="num">1</span>:<span class="num">1.59</span>  <span class="comment">// $28.93 risk, $45.87 reward</span>
+          </div>
+          <!-- R:R bar -->
+          <div style="margin-top:12px;display:flex;gap:12px;align-items:center">
+            <div style="font-size:12px;font-weight:700;color:var(--muted);min-width:60px">Risk</div>
+            <div style="flex:1;background:var(--border);border-radius:4px;height:8px;overflow:hidden">
+              <div style="width:39%;height:100%;background:var(--red);border-radius:4px"></div>
+            </div>
+            <div style="font-size:12px;font-weight:700;color:var(--red)">$28.93/sh</div>
+          </div>
+          <div style="margin-top:6px;display:flex;gap:12px;align-items:center">
+            <div style="font-size:12px;font-weight:700;color:var(--muted);min-width:60px">Reward</div>
+            <div style="flex:1;background:var(--border);border-radius:4px;height:8px;overflow:hidden">
+              <div style="width:62%;height:100%;background:var(--green);border-radius:4px"></div>
+            </div>
+            <div style="font-size:12px;font-weight:700;color:var(--green)">$45.87/sh</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ── Footer ────────────────────────────────────────────────────────────── -->
+  <div style="text-align:center;padding:32px 0;color:var(--muted);font-size:13px">
+    Synapse Algo — Designed and built by Matteo Craviotto · March 2026<br>
+    <span style="font-size:11px">7,000+ lines of Python · 5 LLMs · 6 pipeline steps · 0 trades without full chain consensus</span>
+  </div>
+
+</main>
+</body>
+</html>
