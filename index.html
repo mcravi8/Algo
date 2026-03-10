@@ -991,44 +991,47 @@ function drawEquityChart(d) {
   });
   const synData = history.map(p => p.portfolio_value);
   const spyData = history.map(p => p.spy_value);
-  const bhData  = history.map(p => p.buy_hold_value != null ? p.buy_hold_value : sc);
+  const bhRaw   = history.map(p => p.buy_hold_value != null ? p.buy_hold_value : sc);
+  // Only show buy-hold line when it has real data (not all flat at starting capital)
+  const bhHasData = bhRaw.some(v => Math.abs(v - sc) > 1);
+
+  const datasets = [
+    {
+      label: 'Synapse',
+      data: synData,
+      borderColor: '#e8472a',
+      backgroundColor: 'rgba(232,71,42,0.08)',
+      borderWidth: 2.5,
+      pointRadius: 0,
+      tension: 0.4,
+      fill: true,
+    },
+  ];
+  if (bhHasData) {
+    datasets.push({
+      label: 'Buy & Hold',
+      data: bhRaw,
+      borderColor: '#4a90d9',
+      borderWidth: 1.5,
+      pointRadius: 0,
+      tension: 0.4,
+      fill: false,
+      borderDash: [4, 3],
+    });
+  }
+  datasets.push({
+    label: 'SPY',
+    data: spyData,
+    borderColor: '#b0aaa3',
+    borderWidth: 1.5,
+    pointRadius: 0,
+    tension: 0.4,
+    fill: false,
+  });
 
   equityChartInstance = new Chart(ctx, {
     type: 'line',
-    data: {
-      labels,
-      datasets: [
-        {
-          label: 'Synapse',
-          data: synData,
-          borderColor: '#e8472a',
-          backgroundColor: 'rgba(232,71,42,0.08)',
-          borderWidth: 2.5,
-          pointRadius: 0,
-          tension: 0.4,
-          fill: true,
-        },
-        {
-          label: 'Buy & Hold',
-          data: bhData,
-          borderColor: '#4a90d9',
-          borderWidth: 1.5,
-          pointRadius: 0,
-          tension: 0.4,
-          fill: false,
-          borderDash: [4, 3],
-        },
-        {
-          label: 'SPY',
-          data: spyData,
-          borderColor: '#b0aaa3',
-          borderWidth: 1.5,
-          pointRadius: 0,
-          tension: 0.4,
-          fill: false,
-        },
-      ],
-    },
+    data: { labels, datasets },
     options: _chartOptions(),
   });
 }
